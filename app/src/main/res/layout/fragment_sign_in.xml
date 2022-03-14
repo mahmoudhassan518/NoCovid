@@ -46,7 +46,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_field_height"
                     android:layout_marginTop="16dp"
-                    android:layout_weight="1"
                     android:drawableStart="@drawable/ic_verified_user"
                     android:drawablePadding="8dp"
                     android:hint="@string/nationalId"

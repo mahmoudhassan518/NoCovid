@@ -18,18 +18,17 @@ fun String.buildSignUpString(
 
     val registerNowStart = spannable.indexOf(registerNow)
 
-    val privacyPolicyClickableSpan = object : ClickableSpan() {
+    val registerNowClickableSpan = object : ClickableSpan() {
         override fun updateDrawState(ds: TextPaint) {
             ds.color = context.resources.getColor(R.color.colorPrimary)
             ds.isUnderlineText = true
         }
-
         override fun onClick(view: View) {
             onSingUpClickListener.invoke()
         }
     }
     spannable.setSpan(
-        privacyPolicyClickableSpan,
+        registerNowClickableSpan,
         registerNowStart, // start
         registerNowStart + registerNow.length, // end
         Spannable.SPAN_EXCLUSIVE_INCLUSIVE

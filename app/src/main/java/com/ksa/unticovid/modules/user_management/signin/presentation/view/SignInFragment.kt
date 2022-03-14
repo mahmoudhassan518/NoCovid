@@ -1,5 +1,7 @@
 package com.ksa.unticovid.modules.user_management.signin.presentation.view
 
+import android.text.method.LinkMovementMethod
+import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseFragment
@@ -8,8 +10,10 @@ import com.ksa.unticovid.core.navigation.NavigationCoordinator
 import com.ksa.unticovid.databinding.FragmentSignInBinding
 import com.ksa.unticovid.modules.user_management.core.presentation.navigation.UserManagementNavigatorEvents
 import com.ksa.unticovid.modules.user_management.signin.presentation.viewmodel.SignInViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class SignInFragment :
     BaseFragment<FragmentSignInBinding, SignInViewModel>(R.layout.fragment_sign_in) {
     override val viewModel: SignInViewModel by viewModels()
@@ -23,11 +27,14 @@ class SignInFragment :
 
     private fun initViews() {
 
-        binder.tvSignup.text =
+        val spannableString =
             getString(R.string.newUserMessage).buildSignUpString(
                 requireContext(),
                 onSingUpClickListener = ::navigateToSignUpScreen
             )
+
+        binder.tvSignup.setText(spannableString, TextView.BufferType.SPANNABLE)
+        binder.tvSignup.movementMethod = LinkMovementMethod.getInstance()
     }
 
     private fun navigateToSignUpScreen() =

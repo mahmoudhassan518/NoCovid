@@ -8,4 +8,7 @@
     <string name="login">Login</string>
     <string name="newUserMessage">Don\'t have an account? Register now</string>
     <string name="registerNow">Register now</string>
+    <string name="name">Name</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="confirm_Password">Confirm Password</string>
 </resources>

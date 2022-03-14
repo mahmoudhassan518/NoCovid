@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.30052083333333335" />
         <entry key="app/src/main/res/drawable/ic_security.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/drawable/ic_sun.xml" value="0.41574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_user.xml" value="0.25925925925925924" />
         <entry key="app/src/main/res/drawable/ic_verified_user.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/font/fonts.xml" value="0.1527777777777778" />
         <entry key="app/src/main/res/layout/action_bar_back.xml" value="0.478713768115942" />
@@ -22,6 +23,7 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_user_management.xml" value="0.42604166666666665" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.28306159420289856" />
       </map>
     </option>
   </component>
