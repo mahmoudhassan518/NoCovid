@@ -17,5 +17,6 @@
     <color name="colorHint">#bdbdbd</color>
 
     <color name="colorInActive">#dde3ee</color>
+    <color name="colorError">#cc0000</color>
 
 </resources>

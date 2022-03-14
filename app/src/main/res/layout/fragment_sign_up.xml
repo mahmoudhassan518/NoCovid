@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:background="#00f"
+        android:padding="16dp"
         tools:context=".modules.user_management.signup.presentation.view.SignUpFragment">
 
 
@@ -14,24 +14,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <include
-                android:id="@+id/action_bar_back"
-                layout="@layout/action_bar_back_light" />
+
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/fields_container_LinearLayoutCompat"
                 android:layout_width="match_parent"
-                android:padding="16dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginBottom="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/action_bar_back">
+                app:layout_constraintTop_toTopOf="parent">
 
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/signInWelcomeMessage"
+                    android:text="@string/signUpWelcomeMessage"
+                    android:fontFamily="@font/roboto_bold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="@color/white" />
 
@@ -39,13 +38,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/signInMainMessage"
+                    android:text="@string/signUpMainMessage"
+                    android:fontFamily="@font/roboto_regular"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="@color/white" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/et_nationalId"
                     style="@style/ProfileTextView"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_field_height"
@@ -80,17 +80,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_field_height"
                     android:layout_marginTop="16dp"
-                    android:drawableStart="@drawable/ic_verified_user"
+                    android:drawableStart="@drawable/ic_phone"
                     android:drawablePadding="8dp"
                     android:hint="@string/phoneNumber"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:maxLength="30"
                     android:maxLines="1"
                     android:textAlignment="viewStart"
                     android:textCursorDrawable="@drawable/cursor_color" />
-
-
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_current_password"
@@ -135,19 +132,49 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/btn_login"
+                    android:id="@+id/btn_signup"
                     style="@style/PrimaryButton"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/bg_enabled_button"
-                    android:text="@string/login"
+                    android:text="@string/signup"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_bottom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fields_container_LinearLayoutCompat">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_signup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/backToLoginMessage"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <include
+                android:id="@+id/layout_loading"
+                layout="@layout/layout_loading" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

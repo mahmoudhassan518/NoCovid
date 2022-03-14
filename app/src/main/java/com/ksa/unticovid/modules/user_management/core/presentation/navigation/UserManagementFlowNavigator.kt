@@ -10,4 +10,7 @@ class UserManagementFlowNavigator @Inject constructor() {
 
     fun showSignUpFragment() =
         navController.navigate(R.id.action_signInFragment_to_signUpFragment)
+
+    fun showSignInFragment() =
+        navController.popBackStack()
 }

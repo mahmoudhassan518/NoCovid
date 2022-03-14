@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseFragment
 import com.ksa.unticovid.core.extentions.buildSignUpString
+import com.ksa.unticovid.core.extentions.showAlerterError
 import com.ksa.unticovid.core.navigation.NavigationCoordinator
 import com.ksa.unticovid.databinding.FragmentSignInBinding
 import com.ksa.unticovid.modules.user_management.core.presentation.navigation.UserManagementNavigatorEvents
@@ -23,14 +24,25 @@ class SignInFragment :
 
     override fun setup() {
         initViews()
+        initActions()
+    }
+
+    private fun initActions() {
+        binder.btnLogin.setOnClickListener {
+            requireActivity().showAlerterError("erorororororor")
+        }
     }
 
     private fun initViews() {
+        initSignUpSpannableText()
+    }
 
+    private fun initSignUpSpannableText() {
         val spannableString =
             getString(R.string.newUserMessage).buildSignUpString(
                 requireContext(),
-                onSingUpClickListener = ::navigateToSignUpScreen
+                getString(R.string.registerNow),
+                ::navigateToSignUpScreen
             )
 
         binder.tvSignup.setText(spannableString, TextView.BufferType.SPANNABLE)

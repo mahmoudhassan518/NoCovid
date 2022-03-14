@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_phone.xml" value="0.10740740740740741" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_user.xml" value="0.10740740740740741" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/activity_splash.xml" value="0.22644927536231885" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/activity_user_management.xml" value="0.22644927536231885" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/fragment_sign_in.xml" value="0.2413793103448276" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/fragment_sign_up.xml" value="0.1" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/layout_loading.xml" value="0.2259963768115942" />
         <entry key="app/src/main/res/drawable/bg_disabled_button.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/drawable/bg_enabled_button.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/drawable/bg_text_view.xml" value="0.30104166666666665" />
@@ -27,7 +34,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -20,7 +20,8 @@
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".modules.splash.presentaion.view.SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.UntiCovid.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +30,8 @@
         </activity>
         <activity
             android:name=".modules.home.core.presentation.view.HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="behind"/>
     </application>
 
 </manifest>

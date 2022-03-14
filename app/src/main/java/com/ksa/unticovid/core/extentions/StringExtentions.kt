@@ -11,12 +11,12 @@ import com.ksa.unticovid.core.utils.Action
 
 fun String.buildSignUpString(
     context: Context,
-    onSingUpClickListener: Action,
+    SpannableString: String,
+    onSpannableClickListener: Action,
 ): SpannableString {
     val spannable = SpannableString(this)
-    val registerNow = context.getString(R.string.registerNow)
 
-    val registerNowStart = spannable.indexOf(registerNow)
+    val spannableStart = spannable.indexOf(SpannableString)
 
     val registerNowClickableSpan = object : ClickableSpan() {
         override fun updateDrawState(ds: TextPaint) {
@@ -24,13 +24,13 @@ fun String.buildSignUpString(
             ds.isUnderlineText = true
         }
         override fun onClick(view: View) {
-            onSingUpClickListener.invoke()
+            onSpannableClickListener.invoke()
         }
     }
     spannable.setSpan(
         registerNowClickableSpan,
-        registerNowStart, // start
-        registerNowStart + registerNow.length, // end
+        spannableStart, // start
+        spannableStart + SpannableString.length, // end
         Spannable.SPAN_EXCLUSIVE_INCLUSIVE
     )
 

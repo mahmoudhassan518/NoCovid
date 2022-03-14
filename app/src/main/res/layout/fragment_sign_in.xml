@@ -28,6 +28,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/signInWelcomeMessage"
+                    android:fontFamily="@font/roboto_bold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="@color/white" />
 
@@ -35,13 +36,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_regular"
                     android:text="@string/signInMainMessage"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="@color/white" />
 
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/et_nationalId"
                     style="@style/ProfileTextView"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_field_height"
@@ -84,6 +86,7 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/bg_enabled_button"
                     android:text="@string/login"
+                    android:fontFamily="@font/roboto_regular"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -115,6 +118,10 @@
                     app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+            <include
+                android:id="@+id/layout_loading"
+                layout="@layout/layout_loading" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

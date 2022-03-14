@@ -21,9 +21,10 @@ class UserManagementNavigationCoordinator @Inject constructor(
         when (event) {
             is UserManagementNavigatorEvents.OpenHomeScreen ->
                 featuresNavigator.openHomeScreen()
-
             is UserManagementNavigatorEvents.OpenSignUpScreen ->
                 navigator.showSignUpFragment()
+            is UserManagementNavigatorEvents.OpenSignInScreen ->
+                navigator.showSignInFragment()
         }
     }
 }
