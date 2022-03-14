@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">UntiCovid</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signInWelcomeMessage">Welcome Back!</string>
+    <string name="signInMainMessage">Please login to your account.</string>
+    <string name="nationalId">National ID</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="newUserMessage">Don\'t have an account? Register now</string>
+    <string name="registerNow">Register now</string>
+</resources>

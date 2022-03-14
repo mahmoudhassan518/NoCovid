@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/colorPeaGreen</color>
+    <color name="colorPrimaryDark">@color/colorPeaGreen</color>
+    <color name="colorAccent">@color/colorPeaGreen</color>
+
+    <color name="colorPeaGreen">#FF9A86</color>
+    <color name="colorTransparent">#00000000</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorUserManagementBackgroundLight">#E6E9F0</color>
+    <color name="colorUserManagementBackground">#DEE0EC</color>
+
+
+    <color name="colorHint">#bdbdbd</color>
+
+    <color name="colorInActive">#dde3ee</color>
+
+</resources>

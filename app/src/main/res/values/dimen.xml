@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dimen_field_height">44dp</dimen>
+
+    <dimen name="dimen_password_padding_top">9.5dp</dimen>
+    <dimen name="dimen_password_padding_bottom">12dp</dimen>
+
+</resources>
