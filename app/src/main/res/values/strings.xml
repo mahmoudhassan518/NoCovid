@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">UntiCovid</string>
+    <string name="app_name">No Covid</string>
+    <string name="app_name_first">No</string>
+    <string name="app_name_last">Covid</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signInWelcomeMessage">Welcome Back!</string>
     <string name="signInMainMessage">Please login to your account.</string>
@@ -16,4 +18,9 @@
     <string name="backToLoginMessage">Have an account? Login</string>
     <string name="signup">Sign up</string>
     <string name="error">Error!</string>
+    <string name="home">Home</string>
+    <string name="report">Report</string>
+    <string name="covid19">Covid-19</string>
+    <string name="information">Information</string>
+    <string name="showMoreUnderLine"><u>Show More</u></string>
 </resources>

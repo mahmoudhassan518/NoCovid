@@ -81,6 +81,9 @@ dependencies {
     //alerter
     implementation "com.github.tapadoo:alerter:7.2.4"
 
+    //shadow view
+    implementation "com.github.amikoj:ShadowView:1.0.1"
+
 
     testImplementation 'junit:junit:'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -44,5 +44,4 @@ class SignUpFragment :
 
     private fun navigateToSignInScreen() =
         navigator.onEvent(UserManagementNavigatorEvents.OpenSignInScreen)
-
 }

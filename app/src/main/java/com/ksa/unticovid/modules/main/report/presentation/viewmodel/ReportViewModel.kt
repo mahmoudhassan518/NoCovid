@@ -1,4 +1,4 @@
-package com.ksa.unticovid.modules.home.core.presentation.viewmodel
+package com.ksa.unticovid.modules.main.report.presentation.viewmodel
 
 import com.ksa.unticovid.base.BaseViewModel
 import com.ksa.unticovid.modules.common.di.MainDispatcher
@@ -7,5 +7,5 @@ import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(@MainDispatcher private val mainDispatcher: CoroutineDispatcher) :
+class ReportViewModel @Inject constructor(@MainDispatcher val mainDispatcher: CoroutineDispatcher) :
     BaseViewModel(mainDispatcher)
