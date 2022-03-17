@@ -1,5 +1,7 @@
 package com.ksa.unticovid.modules.information.presentation.view
 
+import android.app.Activity
+import android.content.Intent
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -10,8 +12,10 @@ import com.ksa.unticovid.databinding.ActivityInformationBinding
 import com.ksa.unticovid.modules.information.presentation.model.InformationEffects
 import com.ksa.unticovid.modules.information.presentation.model.InformationUIModel
 import com.ksa.unticovid.modules.information.presentation.viewmodel.InformationViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
+@AndroidEntryPoint
 class InformationActivity :
     BaseActivity<ActivityInformationBinding, InformationViewModel>(R.layout.activity_information) {
     override val viewModel: InformationViewModel by viewModels()
@@ -63,4 +67,12 @@ class InformationActivity :
     }
 
     private fun displayCovidInformation() = viewModel.getCovidInformation()
+
+    companion object {
+
+        fun startActivity(activity: Activity) {
+            val mainIntent = Intent(activity, InformationActivity::class.java)
+            activity.startActivity(mainIntent)
+        }
+    }
 }

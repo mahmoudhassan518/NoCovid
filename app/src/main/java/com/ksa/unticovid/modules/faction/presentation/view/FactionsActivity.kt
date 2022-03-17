@@ -1,5 +1,7 @@
 package com.ksa.unticovid.modules.faction.presentation.view
 
+import android.app.Activity
+import android.content.Intent
 import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -10,8 +12,10 @@ import com.ksa.unticovid.databinding.ActivityFactionsBinding
 import com.ksa.unticovid.modules.faction.presentation.model.FactionsEffects
 import com.ksa.unticovid.modules.faction.presentation.model.FactionsUIModel
 import com.ksa.unticovid.modules.faction.presentation.viewmodel.FactionsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
+@AndroidEntryPoint
 class FactionsActivity :
     BaseActivity<ActivityFactionsBinding, FactionsViewModel>(R.layout.activity_factions) {
     override val viewModel: FactionsViewModel by viewModels()
@@ -62,4 +66,12 @@ class FactionsActivity :
     }
 
     private fun displayFactions() = viewModel.getUserFactions()
+
+    companion object {
+
+        fun startActivity(activity: Activity) {
+            val mainIntent = Intent(activity, FactionsActivity::class.java)
+            activity.startActivity(mainIntent)
+        }
+    }
 }
