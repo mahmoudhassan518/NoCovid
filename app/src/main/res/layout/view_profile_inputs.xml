@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/fields_container_LinearLayoutCompat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_welcome_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/profileWelcomeMessage"
+                android:fontFamily="@font/roboto_bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/profileMessage"
+                android:fontFamily="@font/roboto_regular"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/white" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_nationalId"
+                style="@style/ProfileTextView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_field_height"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_verified_user"
+                android:drawablePadding="8dp"
+                android:hint="@string/nationalId"
+                android:inputType="number"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                android:textCursorDrawable="@drawable/cursor_color" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_name"
+                style="@style/ProfileTextView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_field_height"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_user"
+                android:drawablePadding="8dp"
+                android:hint="@string/name"
+                android:inputType="text"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                android:textCursorDrawable="@drawable/cursor_color" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_phone"
+                style="@style/ProfileTextView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_field_height"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_phone"
+                android:drawablePadding="8dp"
+                android:hint="@string/phoneNumber"
+                android:inputType="phone"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                android:textCursorDrawable="@drawable/cursor_color" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_save"
+                style="@style/PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_enabled_button"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

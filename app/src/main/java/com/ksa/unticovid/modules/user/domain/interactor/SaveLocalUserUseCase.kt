@@ -11,5 +11,5 @@ class SaveLocalUserUseCase @Inject constructor(
 ) : BaseUseCase<UserEntity, Unit>() {
 
     override fun invoke(param: UserEntity): Flow<Unit> =
-        repository.saveUser(param)
+        repository.saveLocalUser(param)
 }

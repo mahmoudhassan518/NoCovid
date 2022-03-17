@@ -18,8 +18,7 @@ import javax.inject.Inject
 class UserManagementActivity :
     BaseActivity<ActivityUserManagementBinding, UserManagementViewModel>(R.layout.activity_user_management) {
 
-    override val viewModel: UserManagementViewModel
-        by viewModels()
+    override val viewModel: UserManagementViewModel by viewModels()
 
     @Inject
     lateinit var navigator: NavigationCoordinator<UserManagementNavigatorEvents>

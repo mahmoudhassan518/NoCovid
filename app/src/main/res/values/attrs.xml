@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewDisplayInfo">
+        <attr name="item_image" format="integer"/>
+        <attr name="item_label" format="string"/>
+    </declare-styleable>
+</resources>

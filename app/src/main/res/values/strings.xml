@@ -18,9 +18,27 @@
     <string name="backToLoginMessage">Have an account? Login</string>
     <string name="signup">Sign up</string>
     <string name="error">Error!</string>
+    <string name="msgSomethingWentWrong">Something went wrong. Please try again later.</string>
+    <string name="done">Done</string>
     <string name="home">Home</string>
     <string name="report">Report</string>
     <string name="covid19">Covid-19</string>
     <string name="information">Information</string>
+    <string name="faction">Faction</string>
+    <string name="corona_test">Corona Test</string>
     <string name="showMoreUnderLine"><u>Show More</u></string>
+    <string name="profile">Profile</string>
+    <string name="label_report_header">Covid-19 Test Requests</string>
+
+    <string name="reportErrorMessage">error happen in fetching user reports!</string>
+    <string name="profileWelcomeMessage">Hello %1$s</string>
+    <string name="profileMessage">Keep Your life healthy</string>
+    <string name="save">Save</string>
+
+
+    <string name="failedGetUserError">error happen when fetching user data!</string>
+    <string name="profileUpdatedSuccessfullyMessage">Profile updated successfully!</string>
+    <string name="emptyFields">Some fields are empty!</string>
+    <string name="invalidNationalId">Invalid national id</string>
+    <string name="retry">Retry</string>
 </resources>

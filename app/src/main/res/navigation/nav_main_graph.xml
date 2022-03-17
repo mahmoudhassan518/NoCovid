@@ -13,4 +13,8 @@
         android:id="@+id/reportFragment"
         android:name="com.ksa.unticovid.modules.main.report.presentation.view.ReportFragment"
         android:label="ReportFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ksa.unticovid.modules.main.profile.presentation.view.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>

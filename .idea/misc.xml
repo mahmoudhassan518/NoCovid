@@ -12,11 +12,20 @@
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/layout_loading.xml" value="0.2259963768115942" />
         <entry key="app/src/main/res/drawable/bg_disabled_button.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/drawable/bg_enabled_button.xml" value="0.30104166666666665" />
+        <entry key="app/src/main/res/drawable/bg_stroke_corners_5_dp.xml" value="0.49128205128205127" />
         <entry key="app/src/main/res/drawable/bg_text_view.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/drawable/cursor_color.xml" value="0.41574074074074074" />
+        <entry key="app/src/main/res/drawable/divider.xml" value="0.49128205128205127" />
+        <entry key="app/src/main/res/drawable/ic_arrow_forward.xml" value="0.49128205128205127" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.41574074074074074" />
         <entry key="app/src/main/res/drawable/ic_back_black.xml" value="0.41574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_error.xml" value="0.49128205128205127" />
+        <entry key="app/src/main/res/drawable/ic_faction.xml" value="0.49128205128205127" />
+        <entry key="app/src/main/res/drawable/ic_history.xml" value="0.49128205128205127" />
+        <entry key="app/src/main/res/drawable/ic_information.xml" value="0.49128205128205127" />
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.30052083333333335" />
+        <entry key="app/src/main/res/drawable/ic_question_mark.xml" value="0.49128205128205127" />
+        <entry key="app/src/main/res/drawable/ic_refresh.xml" value="0.49128205128205127" />
         <entry key="app/src/main/res/drawable/ic_security.xml" value="0.30104166666666665" />
         <entry key="app/src/main/res/drawable/ic_sun.xml" value="0.41574074074074074" />
         <entry key="app/src/main/res/drawable/ic_user.xml" value="0.25925925925925924" />
@@ -25,16 +34,21 @@
         <entry key="app/src/main/res/layout/action_bar_back.xml" value="0.478713768115942" />
         <entry key="app/src/main/res/layout/action_bar_back_dark.xml" value="0.478713768115942" />
         <entry key="app/src/main/res/layout/action_bar_back_light.xml" value="0.478713768115942" />
+        <entry key="app/src/main/res/layout/activity_factions.xml" value="0.4828125" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.29375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_user_management.xml" value="0.42604166666666665" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.4828125" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.13213213213213212" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.46875" />
         <entry key="app/src/main/res/layout/fragment_report.xml" value="0.4828125" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.28306159420289856" />
-        <entry key="app/src/main/res/layout/view_display_info.xml" value="0.4828125" />
-        <entry key="app/src/main/res/menu/main_bottom_navigation_menu.xml" value="0.4828125" />
+        <entry key="app/src/main/res/layout/item_report.xml" value="0.4828125" />
+        <entry key="app/src/main/res/layout/layout_error.xml" value="0.4828125" />
+        <entry key="app/src/main/res/layout/view_display_info.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/view_profile_inputs.xml" value="0.4828125" />
+        <entry key="app/src/main/res/menu/main_bottom_navigation_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

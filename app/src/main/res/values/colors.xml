@@ -18,5 +18,9 @@
 
     <color name="colorInActive">#dde3ee</color>
     <color name="colorError">#cc0000</color>
+    <color name="colorSuccess">#4BB543</color>
+
+    <color name="colorBlueGrey">#8399af</color>
+    <color name="colorLightPaleGrey">#dde3ee</color>
 
 </resources>

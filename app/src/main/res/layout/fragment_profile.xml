@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:background="@color/colorUserManagementBackground"
+        tools:context=".modules.main.profile.presentation.view.ProfileFragment">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/sr_refresher"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:layout_marginStart="-90dp"
+                    android:layout_marginTop="-90dp"
+                    android:src="@drawable/ic_sun"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include layout="@layout/view_profile_inputs"
+                    android:id="@+id/view_profile_inputs"
+                    android:layout_margin="16dp"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"/>
+
+
+                <include layout="@layout/layout_loading"
+                    android:id="@+id/layout_loading"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

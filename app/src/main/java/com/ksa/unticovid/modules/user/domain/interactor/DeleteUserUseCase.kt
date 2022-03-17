@@ -8,6 +8,6 @@ import javax.inject.Inject
 class DeleteUserUseCase @Inject constructor(private val repository: UserRepository) :
     BaseUseCase<Unit, Unit>() {
     override fun invoke(param: Unit): Flow<Unit> {
-        return repository.deleteUser()
+        return repository.deleteLocalUser()
     }
 }
