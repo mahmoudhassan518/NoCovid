@@ -27,7 +27,7 @@ class FactionsViewModel @Inject constructor(
     private val _uiEffects = MutableSharedFlow<FactionsEffects>(replay = 0)
     val uiEffects: SharedFlow<FactionsEffects> = _uiEffects
 
-    private fun getUserFactions() =
+    fun getUserFactions() =
         launchBlock(onStart = { donOnStart() }, onError = { showError() }) {
             repository.getFactions().collectLatest { factions ->
                 _uiState.value =

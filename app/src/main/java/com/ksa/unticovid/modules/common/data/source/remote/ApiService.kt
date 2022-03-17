@@ -1,6 +1,7 @@
 package com.ksa.unticovid.modules.common.data.source.remote
 
 import com.ksa.unticovid.modules.faction.data.model.FactionsResponse
+import com.ksa.unticovid.modules.information.data.model.InformationResponse
 import com.ksa.unticovid.modules.main.report.data.model.ReportResponse
 import com.ksa.unticovid.modules.user.data.model.UserRequest
 import com.ksa.unticovid.modules.user.data.model.UserResponse
@@ -21,4 +22,7 @@ interface ApiService {
 
     @GET("/api/user")
     suspend fun getFactions(): FactionsResponse
+
+    @GET("/api/user")
+    suspend fun getInformation(): InformationResponse
 }

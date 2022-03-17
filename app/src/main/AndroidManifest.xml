@@ -16,6 +16,9 @@
             android:name=".modules.faction.presentation.view.FactionsActivity"
             android:exported="false" />
         <activity
+            android:name=".modules.information.presentation.view.InformationActivity"
+            android:exported="false" />
+        <activity
             android:name=".modules.user_management.core.presentation.view.UserManagementActivity"
             android:exported="false"
             android:screenOrientation="behind"

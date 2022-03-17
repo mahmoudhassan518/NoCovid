@@ -1,4 +1,4 @@
-package com.ksa.unticovid.modules.faction.presentation.view
+package com.ksa.unticovid.modules.information.presentation.view
 
 import android.view.View
 import androidx.activity.viewModels
@@ -6,25 +6,26 @@ import androidx.lifecycle.lifecycleScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseActivity
 import com.ksa.unticovid.core.extentions.showAlerterError
-import com.ksa.unticovid.databinding.ActivityFactionsBinding
-import com.ksa.unticovid.modules.faction.presentation.model.FactionsEffects
-import com.ksa.unticovid.modules.faction.presentation.model.FactionsUIModel
-import com.ksa.unticovid.modules.faction.presentation.viewmodel.FactionsViewModel
+import com.ksa.unticovid.databinding.ActivityInformationBinding
+import com.ksa.unticovid.modules.information.presentation.model.InformationEffects
+import com.ksa.unticovid.modules.information.presentation.model.InformationUIModel
+import com.ksa.unticovid.modules.information.presentation.viewmodel.InformationViewModel
 import kotlinx.coroutines.flow.collectLatest
 
-class FactionsActivity :
-    BaseActivity<ActivityFactionsBinding, FactionsViewModel>(R.layout.activity_factions) {
-    override val viewModel: FactionsViewModel by viewModels()
+class InformationActivity :
+    BaseActivity<ActivityInformationBinding, InformationViewModel>(R.layout.activity_information) {
+    override val viewModel: InformationViewModel by viewModels()
 
     override fun setup() {
         initObservations()
         initActions()
-        displayFactions()
+
+        displayCovidInformation()
     }
 
     private fun initActions() {
         binder.layoutError.tvRetry.setOnClickListener {
-            displayFactions()
+            displayCovidInformation()
         }
     }
 
@@ -43,15 +44,15 @@ class FactionsActivity :
         }
     }
 
-    private fun renderEffects(it: FactionsEffects) {
+    private fun renderEffects(it: InformationEffects) {
         when (it) {
-            is FactionsEffects.ShowFactionsError -> showAlerterError(
+            is InformationEffects.ShowInformationError -> showAlerterError(
                 getString(it.message)
             )
         }
     }
 
-    private fun renderUiModel(uiModel: FactionsUIModel) {
+    private fun renderUiModel(uiModel: InformationUIModel) {
         binder.layoutLoading.visibility = if (uiModel.isLoading) View.VISIBLE else View.GONE
         binder.layoutError.root.visibility =
             if (uiModel.errorMessage != null) View.VISIBLE else View.GONE
@@ -61,5 +62,5 @@ class FactionsActivity :
         }
     }
 
-    private fun displayFactions() = viewModel.getUserFactions()
+    private fun displayCovidInformation() = viewModel.getCovidInformation()
 }
