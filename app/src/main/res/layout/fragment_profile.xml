@@ -31,8 +31,8 @@
                     android:layout_width="match_parent"/>
 
 
-                <include layout="@layout/layout_loading"
-                    android:id="@+id/layout_loading"/>
+                <include layout="@layout/layout_state_view"
+                    android:id="@+id/layout_state_view" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

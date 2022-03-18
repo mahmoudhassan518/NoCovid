@@ -2,8 +2,8 @@ package com.ksa.unticovid.modules.faction.presentation.view
 
 import android.app.Activity
 import android.content.Intent
-import android.view.View
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseActivity
@@ -27,7 +27,7 @@ class FactionsActivity :
     }
 
     private fun initActions() {
-        binder.layoutError.tvRetry.setOnClickListener {
+        binder.layoutStateView.tvRetry.setOnClickListener {
             displayFactions()
         }
     }
@@ -56,12 +56,16 @@ class FactionsActivity :
     }
 
     private fun renderUiModel(uiModel: FactionsUIModel) {
-        binder.layoutLoading.visibility = if (uiModel.isLoading) View.VISIBLE else View.GONE
-        binder.layoutError.root.visibility =
-            if (uiModel.errorMessage != null) View.VISIBLE else View.GONE
+        renderStateView(uiModel)
+    }
+
+    private fun renderStateView(uiModel: FactionsUIModel) {
+        binder.layoutStateView.root.isVisible = uiModel.isLoading.or(uiModel.errorMessage != null)
+        binder.layoutStateView.cvLoading.isVisible = uiModel.isLoading
+        binder.layoutStateView.clError.isVisible = (uiModel.errorMessage != null)
 
         uiModel.errorMessage?.let {
-            binder.layoutError.tvErrorMessage.text = getString(it)
+            binder.layoutStateView.tvErrorMessage.text = getString(it)
         }
     }
 

@@ -7,5 +7,5 @@ import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(@MainDispatcher val mainDispatcher: CoroutineDispatcher) :
+class HomeViewModel @Inject constructor(@MainDispatcher private val mainDispatcher: CoroutineDispatcher) :
     BaseViewModel(mainDispatcher)

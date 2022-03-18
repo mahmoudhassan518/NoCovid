@@ -1,7 +1,8 @@
 package com.ksa.unticovid.modules.main.report.presentation.view
 
-import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -10,6 +11,7 @@ import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseFragment
 import com.ksa.unticovid.core.extentions.showAlerterError
 import com.ksa.unticovid.databinding.FragmentReportBinding
+import com.ksa.unticovid.modules.main.core.presentation.viewmodel.MainViewModel
 import com.ksa.unticovid.modules.main.report.presentation.adapter.ReportAdapter
 import com.ksa.unticovid.modules.main.report.presentation.model.ReportListEffects
 import com.ksa.unticovid.modules.main.report.presentation.model.ReportUIModel
@@ -22,20 +24,53 @@ import javax.inject.Inject
 class ReportFragment :
     BaseFragment<FragmentReportBinding, ReportViewModel>(R.layout.fragment_report) {
 
+    private val mainViewModel: MainViewModel by activityViewModels()
     override val viewModel: ReportViewModel by viewModels()
 
     @Inject
     lateinit var reportAdapter: ReportAdapter
 
     override fun setup() {
-        initRecyclerViewAdapter()
+        initViews()
         initObservations()
         initActions()
-        viewModel.getUserReports()
+        loadReports()
+    }
+
+    private fun initViews() {
+        initRecyclerViewAdapter()
+        initSwapRefresher()
+        mainViewModel.showAppActionBar()
+    }
+
+    private fun initRecyclerViewAdapter() {
+        with(binder.rvReports) {
+
+            layoutManager = LinearLayoutManager(requireContext())
+
+            val itemDecoration =
+                DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
+            itemDecoration.setDrawable(
+                ContextCompat.getDrawable(
+                    requireContext(),
+                    R.drawable.divider
+                )!!
+            )
+            addItemDecoration(itemDecoration)
+
+            adapter = reportAdapter
+        }
+    }
+
+    private fun initSwapRefresher() {
+        binder.swContainer.setOnRefreshListener {
+            binder.swContainer.isRefreshing = false
+            loadReports()
+        }
     }
 
     private fun initActions() {
-        binder.layoutError.tvRetry.setOnClickListener { viewModel.getUserReports() }
+        binder.layoutStateView.tvRetry.setOnClickListener { loadReports() }
     }
 
     private fun initObservations() {
@@ -62,32 +97,24 @@ class ReportFragment :
     }
 
     private fun renderUiModel(uiModel: ReportUIModel) {
-        binder.layoutLoading.visibility = if (uiModel.isLoading) View.VISIBLE else View.GONE
-        binder.layoutError.root.visibility =
-            if (uiModel.errorMessage != null) View.VISIBLE else View.GONE
-
-        uiModel.errorMessage?.let {
-            binder.layoutError.tvErrorMessage.text = getString(it)
-        }
+        renderStateView(uiModel)
         reportAdapter.submitList(uiModel.reports)
     }
 
-    private fun initRecyclerViewAdapter() {
-        with(binder.rvAnalytics) {
+    private fun renderStateView(uiModel: ReportUIModel) {
+        binder.layoutStateView.root.isVisible =
+            uiModel.isLoading.or(uiModel.errorMessage != null).or(uiModel.emptyMessage != null)
+        binder.layoutStateView.cvLoading.isVisible = uiModel.isLoading
+        binder.layoutStateView.clError.isVisible = (uiModel.errorMessage != null)
+        binder.layoutStateView.clEmpty.isVisible = (uiModel.emptyMessage != null)
 
-            layoutManager = LinearLayoutManager(requireContext())
-
-            val itemDecoration =
-                DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
-            itemDecoration.setDrawable(
-                ContextCompat.getDrawable(
-                    requireContext(),
-                    R.drawable.divider
-                )!!
-            )
-            addItemDecoration(itemDecoration)
-
-            adapter = reportAdapter
+        uiModel.errorMessage?.let {
+            binder.layoutStateView.tvErrorMessage.text = getString(it)
+        }
+        uiModel.emptyMessage?.let {
+            binder.layoutStateView.tvEmptyMessage.text = getString(it)
         }
     }
+
+    private fun loadReports() = viewModel.getUserReports()
 }

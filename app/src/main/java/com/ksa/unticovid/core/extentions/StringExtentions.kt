@@ -9,6 +9,11 @@ import android.view.View
 import com.ksa.unticovid.R
 import com.ksa.unticovid.core.utils.Action
 
+fun Any?.isNull(function: Action) {
+    if (this == null)
+        function.invoke()
+}
+
 fun String.buildSignUpString(
     context: Context,
     SpannableString: String,

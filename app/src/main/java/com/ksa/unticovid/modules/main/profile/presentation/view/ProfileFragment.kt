@@ -1,6 +1,7 @@
 package com.ksa.unticovid.modules.main.profile.presentation.view
 
-import android.view.View
+import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.ksa.unticovid.R
@@ -8,6 +9,7 @@ import com.ksa.unticovid.base.BaseFragment
 import com.ksa.unticovid.core.extentions.showAlerterError
 import com.ksa.unticovid.core.extentions.showAlerterSuccess
 import com.ksa.unticovid.databinding.FragmentProfileBinding
+import com.ksa.unticovid.modules.main.core.presentation.viewmodel.MainViewModel
 import com.ksa.unticovid.modules.main.profile.presentation.model.ProfileEffects
 import com.ksa.unticovid.modules.main.profile.presentation.model.ProfileUIModel
 import com.ksa.unticovid.modules.main.profile.presentation.viewmodel.ProfileViewModel
@@ -19,16 +21,22 @@ import kotlinx.coroutines.flow.collectLatest
 class ProfileFragment :
     BaseFragment<FragmentProfileBinding, ProfileViewModel>(R.layout.fragment_profile) {
 
+    private val mainViewModel: MainViewModel by activityViewModels()
     override val viewModel: ProfileViewModel by viewModels()
 
     override fun setup() {
         viewModel.getRemoteUserData()
+        initViews()
         initObservations()
         initActions()
         binder.srRefresher.setOnRefreshListener {
             binder.srRefresher.isRefreshing = false
             viewModel.getRemoteUserData()
         }
+    }
+
+    private fun initViews() {
+        mainViewModel.showAppActionBar(false)
     }
 
     private fun initActions() {
@@ -58,7 +66,7 @@ class ProfileFragment :
     }
 
     private fun renderUiModel(uiModel: ProfileUIModel) {
-        binder.layoutLoading.visibility = if (uiModel.isLoading) View.VISIBLE else View.GONE
+        renderStateView(uiModel)
 
         uiModel.user?.let { user ->
             binder.viewProfileInputs.tvWelcomeMessage.text =
@@ -67,6 +75,11 @@ class ProfileFragment :
             binder.viewProfileInputs.etNationalId.setText(user.nationalId)
             binder.viewProfileInputs.etPhone.setText(user.phoneNumber)
         }
+    }
+
+    private fun renderStateView(uiModel: ProfileUIModel) {
+        binder.layoutStateView.root.isVisible = uiModel.isLoading
+        binder.layoutStateView.cvLoading.isVisible = uiModel.isLoading
     }
 
     private fun renderEffects(it: ProfileEffects) {

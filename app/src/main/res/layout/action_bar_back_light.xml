@@ -8,14 +8,14 @@
     app:contentInsetEnd="0dp">
 
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/back_ImageButton"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/dimen_main_icons_size"
+        android:layout_height="@dimen/dimen_main_icons_size"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_back_primary" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/actionBarTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

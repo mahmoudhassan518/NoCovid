@@ -15,13 +15,12 @@
             android:layout_height="match_parent">
 
 
-
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/fields_container_LinearLayoutCompat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginBottom="100dp"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -29,8 +28,8 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/signUpWelcomeMessage"
                     android:fontFamily="@font/roboto_bold"
+                    android:text="@string/signUpWelcomeMessage"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="@color/white" />
 
@@ -38,8 +37,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="@string/signUpMainMessage"
                     android:fontFamily="@font/roboto_regular"
+                    android:text="@string/signUpMainMessage"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="@color/white" />
 
@@ -160,21 +159,20 @@
                     android:id="@+id/tv_signup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/backToLoginMessage"
-                    android:textColor="@color/black"
-                    android:gravity="center"
                     android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:text="@string/backToLoginMessage"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
             <include
-                android:id="@+id/layout_loading"
-                layout="@layout/layout_loading" />
+                android:id="@+id/layout_state_view"
+                layout="@layout/layout_state_view" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -20,7 +20,7 @@ data class UIError(
         fun failedToGetUserData(): UIError {
             return UIError(
                 title = R.string.error,
-                msg = R.string.failedGetUserError
+                msg = R.string.failedGetProfileError
             )
         }
 

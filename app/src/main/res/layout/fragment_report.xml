@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -10,36 +11,39 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
             style="@style/StylePageTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/label_report_header"
+            android:textAlignment="viewStart"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/label_report_header"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swContainer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_analytics"
+                android:id="@+id/rv_reports"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:overScrollMode="never"
                 android:paddingBottom="100dp"
-                android:padding="16dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="3"
                 tools:listitem="@layout/item_report" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <include layout="@layout/layout_error"
-            android:id="@+id/layout_error"/>
-
-        <include layout="@layout/layout_loading"
-            android:id="@+id/layout_loading"/>
+        <include
+            android:id="@+id/layout_state_view"
+            layout="@layout/layout_state_view" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

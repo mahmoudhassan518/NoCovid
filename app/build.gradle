@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -84,6 +85,9 @@ dependencies {
     //shadow view
     implementation "com.github.amikoj:ShadowView:1.0.1"
 
+
+    //image loader
+    implementation "io.coil-kt:coil:1.1.0"
 
     testImplementation 'junit:junit:'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

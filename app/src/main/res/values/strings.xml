@@ -30,15 +30,29 @@
     <string name="profile">Profile</string>
     <string name="label_report_header">Covid-19 Test Requests</string>
 
-    <string name="reportErrorMessage">error happen in fetching user reports!</string>
+    <string name="reportErrorMessage">error happen while fetching reports!</string>
+    <string name="emptyReportMessage">No Reports Yet.</string>
+    <string name="emptyListMessage">empty list!</string>
     <string name="profileWelcomeMessage">Hello %1$s</string>
     <string name="profileMessage">Keep Your life healthy</string>
     <string name="save">Save</string>
 
 
-    <string name="failedGetUserError">error happen when fetching user data!</string>
+    <string name="failedGetProfileError">error happen while loading profile</string>
     <string name="profileUpdatedSuccessfullyMessage">Profile updated successfully!</string>
     <string name="emptyFields">Some fields are empty!</string>
     <string name="invalidNationalId">Invalid national id</string>
     <string name="retry">Retry</string>
+    <string name="result_title_negative">Yay! You are safe!</string>
+    <string name="callDoctorLabel">Call covid-19 Emergency</string>
+    <string name="ignoreAnyWayLabel">Ignore anyway</string>
+    <string name="result_title_positive">"Oh! We suspect that you have symptoms of Covid-19"</string>
+    <string name="newAnalysis">Add New Analysis</string>
+    <string name="analyticsErrorMessage">error happen while fetching analytics!</string>
+    <string name="emptyAnalyticsMessage">No Analytics Yet.</string>
+    <string name="analyticsUploadSuccessfulMessage">Your report uploaded successfully.</string>
+    <string name="accessStorageAndCameraErrorMessage">Permission Denied!</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="upload">Upload</string>
 </resources>

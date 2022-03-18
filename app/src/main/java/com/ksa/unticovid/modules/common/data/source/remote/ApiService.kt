@@ -1,5 +1,6 @@
 package com.ksa.unticovid.modules.common.data.source.remote
 
+import com.ksa.unticovid.modules.analytics.data.model.AnalyticsResponse
 import com.ksa.unticovid.modules.faction.data.model.FactionsResponse
 import com.ksa.unticovid.modules.information.data.model.InformationResponse
 import com.ksa.unticovid.modules.main.report.data.model.ReportResponse
@@ -25,4 +26,7 @@ interface ApiService {
 
     @GET("/api/user")
     suspend fun getInformation(): InformationResponse
+
+    @GET("/api/user")
+    suspend fun getAnalytics(/*@Query("id") id: String**/): List<AnalyticsResponse>
 }

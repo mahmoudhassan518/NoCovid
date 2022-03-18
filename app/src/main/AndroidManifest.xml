@@ -3,6 +3,10 @@
     package="com.ksa.unticovid">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".base.BaseApplication"
@@ -13,10 +17,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UntiCovid">
         <activity
+            android:name=".modules.analytics.presentation.view.AnalyticsActivity"
+            android:screenOrientation="behind"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".modules.faction.presentation.view.FactionsActivity"
+            android:screenOrientation="behind"
             android:exported="false" />
         <activity
             android:name=".modules.information.presentation.view.InformationActivity"
+            android:screenOrientation="behind"
             android:exported="false" />
         <activity
             android:name=".modules.user_management.core.presentation.view.UserManagementActivity"
@@ -27,17 +43,23 @@
         <activity
             android:name=".modules.splash.presentaion.view.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.UntiCovid.NoActionBar.FullScreen"></activity>
+            android:screenOrientation="behind"
+            android:theme="@style/Theme.UntiCovid.NoActionBar.FullScreen" />
         <activity
             android:name=".modules.main.core.presentation.view.MainActivity"
-            android:exported="true"
-            android:screenOrientation="behind">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:theme="@style/Theme.UntiCovid.ActionBarStatusBarTransparent"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.ksa.unticovid.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

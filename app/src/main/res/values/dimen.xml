@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="dimen_main_icons_size">24dp</dimen>
     <dimen name="dimen_field_height">44dp</dimen>
 
     <dimen name="dimen_password_padding_top">9.5dp</dimen>
     <dimen name="dimen_password_padding_bottom">12dp</dimen>
 
+    <dimen name="dimen_result_dialog_margin_top">@dimen/abc_action_bar_default_height_material</dimen>
+    <dimen name="dimen_result_dialog_width">478dp</dimen>
+
+    <dimen name="dimen_error_msg_padding_vertically">11dp</dimen>
 </resources>

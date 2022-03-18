@@ -30,13 +30,19 @@ class ReportViewModel @Inject constructor(
     fun getUserReports() = launchBlock(onStart = { donOnStart() }, onError = { showError() }) {
         getUserOrdersUseCase(Unit).collectLatest { reports ->
             _uiState.value =
-                _uiState.value.copy(isLoading = false, reports = reports.map { it.toUIModel() })
+                _uiState.value.copy(
+                    isLoading = false,
+                    emptyMessage = buildEmptyMessage(reports.isNullOrEmpty()),
+                    reports = reports.map { it.toUIModel() })
         }
     }
 
+    private fun buildEmptyMessage(isEmpty: Boolean) =
+        if (isEmpty) R.string.emptyReportMessage else null
+
     private fun donOnStart() {
         _uiState.value =
-            _uiState.value.copy(isLoading = true, errorMessage = null)
+            _uiState.value.copy(isLoading = true, errorMessage = null, emptyMessage = null)
     }
 
     private fun showError() {
