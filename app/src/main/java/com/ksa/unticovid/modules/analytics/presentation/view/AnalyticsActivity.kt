@@ -1,5 +1,7 @@
 package com.ksa.unticovid.modules.analytics.presentation.view
 
+import android.app.Activity
+import android.content.Intent
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -131,6 +133,14 @@ class AnalyticsActivity :
             uploadDialog?.onDismissListener = {
                 uploadDialog = null
             }
+        }
+    }
+
+    companion object {
+
+        fun startActivity(activity: Activity) {
+            val mainIntent = Intent(activity, AnalyticsActivity::class.java)
+            activity.startActivity(mainIntent)
         }
     }
 

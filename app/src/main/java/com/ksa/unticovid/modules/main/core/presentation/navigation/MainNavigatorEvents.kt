@@ -5,4 +5,5 @@ sealed class MainNavigatorEvents {
     object OpenInformationScreen : MainNavigatorEvents()
     object OpenFactionScreen : MainNavigatorEvents()
     object OpenQuestionsScreen : MainNavigatorEvents()
+    object OpenAnalyticsScreen : MainNavigatorEvents()
 }

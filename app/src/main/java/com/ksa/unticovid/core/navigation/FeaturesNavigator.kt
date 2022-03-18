@@ -6,4 +6,5 @@ interface FeaturesNavigator {
     fun openInformationScreen()
     fun openFactionScreen()
     fun openQuestionsScreen()
+    fun openAnalyticsScreen()
 }

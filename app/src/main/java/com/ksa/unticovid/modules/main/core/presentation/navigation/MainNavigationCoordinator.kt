@@ -25,6 +25,8 @@ class MainNavigationCoordinator @Inject constructor(
                 featuresNavigator.openFactionScreen()
             is MainNavigatorEvents.OpenQuestionsScreen ->
                 featuresNavigator.openQuestionsScreen()
+            is MainNavigatorEvents.OpenAnalyticsScreen ->
+                featuresNavigator.openAnalyticsScreen()
         }
     }
 }

@@ -19,13 +19,7 @@
         <activity
             android:name=".modules.analytics.presentation.view.AnalyticsActivity"
             android:screenOrientation="behind"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".modules.faction.presentation.view.FactionsActivity"
             android:screenOrientation="behind"
@@ -47,9 +41,15 @@
             android:theme="@style/Theme.UntiCovid.NoActionBar.FullScreen" />
         <activity
             android:name=".modules.main.core.presentation.view.MainActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="behind"
-            android:theme="@style/Theme.UntiCovid.ActionBarStatusBarTransparent"/>
+            android:theme="@style/Theme.UntiCovid.ActionBarStatusBarTransparent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
