@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseActivity
+import com.ksa.unticovid.core.extentions.setupWebView
 import com.ksa.unticovid.core.extentions.showAlerterError
 import com.ksa.unticovid.databinding.ActivityFactionsBinding
 import com.ksa.unticovid.modules.faction.presentation.model.FactionsEffects
@@ -21,15 +22,23 @@ class FactionsActivity :
     override val viewModel: FactionsViewModel by viewModels()
 
     override fun setup() {
+        initViews()
         initObservations()
         initActions()
         displayFactions()
     }
 
+    private fun initViews() {
+        initWebView()
+    }
+
+    private fun initWebView() = with(binder.webView) { setupWebView() }
+
     private fun initActions() {
         binder.layoutStateView.tvRetry.setOnClickListener {
             displayFactions()
         }
+        binder.actionBar.backImageButton.setOnClickListener { finish() }
     }
 
     private fun initObservations() {
@@ -66,6 +75,11 @@ class FactionsActivity :
 
         uiModel.errorMessage?.let {
             binder.layoutStateView.tvErrorMessage.text = getString(it)
+        }
+
+        uiModel.factions?.let {
+            binder.webView.loadDataWithBaseURL(null, it.data, "text/html", "UTF-8", null)
+
         }
     }
 

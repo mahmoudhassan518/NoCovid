@@ -42,6 +42,7 @@
     <string name="profileUpdatedSuccessfullyMessage">Profile updated successfully!</string>
     <string name="emptyFields">Some fields are empty!</string>
     <string name="invalidNationalId">Invalid national id</string>
+    <string name="invalidEmailAddress">Invalid email address</string>
     <string name="retry">Retry</string>
     <string name="result_title_negative">Yay! You are safe!</string>
     <string name="callDoctorLabel">Call covid-19 Emergency</string>
@@ -55,4 +56,20 @@
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="upload">Upload</string>
+    <string name="email">Email</string>
+    <string name="passwordMissMatchMsg">Password and confirm password are not the same</string>
+    <string name="address">Address</string>
+    <string name="age">Age</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="passwordLengthErrorMsg">password length must be more than 6 characters</string>
+    <string name="no">NO</string>
+    <string name="yes">Yes</string>
+    <string name="coughQuestion">Do you have cough?</string>
+    <string name="diarrheaQuestion">Do you have diarrhea?</string>
+    <string name="dyspneaQuestion">Do you have dyspnea?</string>
+    <string name="feverQuestion">Do you have fever?</string>
+    <string name="submit">Submit</string>
+    <string name="positive">Positive</string>
+    <string name="negative">Negative</string>
 </resources>

@@ -2,6 +2,7 @@ package com.ksa.unticovid.modules.main.report.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +11,10 @@ import com.ksa.unticovid.databinding.ItemReportBinding
 import com.ksa.unticovid.modules.main.report.presentation.model.ReportItemUIModel
 import javax.inject.Inject
 
-class ReportAdapter @Inject constructor() : ListAdapter<ReportItemUIModel, ReportAdapter.ViewHolder>(
-    AdapterDiffUtil
-) {
+class ReportAdapter @Inject constructor() :
+    ListAdapter<ReportItemUIModel, ReportAdapter.ViewHolder>(
+        AdapterDiffUtil
+    ) {
 
     lateinit var itemClickListener: Consumer<ReportItemUIModel>
 
@@ -51,12 +53,16 @@ class ReportAdapter @Inject constructor() : ListAdapter<ReportItemUIModel, Repor
 
         private fun bindLayout(item: ReportItemUIModel) {
             bind.apply {
-                bind.tvTitle.text = item.title
-                bind.tvDate.text = item.date
-                bind.root.setOnClickListener {
-                    itemClickListener(
-                        getItem(adapterPosition)
-                    )
+                with(item) {
+                    tvDate.text = date
+                    ivImage.isVisible = hasCovid
+                    tvResult.text = bind.root.context.getString(resultMessage)
+                    root.setOnClickListener {
+                        if (hasCovid)
+                            itemClickListener(
+                                getItem(adapterPosition)
+                            )
+                    }
                 }
             }
         }

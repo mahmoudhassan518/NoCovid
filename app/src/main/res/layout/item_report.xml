@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
     <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="4dp"
         android:orientation="vertical"
-        xmlns:tools="http://schemas.android.com/tools">
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_regular"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:text="12-03-2022" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_image"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_arrow_forward" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            tools:text="ndskflnfsglkfdnfdklnfksfnasfklsdfnnlds"
-            android:textAlignment="viewStart"
+            android:layout_marginTop="8dp"
 
-            android:drawablePadding="5dp"
-            android:fontFamily="@font/roboto_regular"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:drawableEnd="@drawable/ic_arrow_forward"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorBlueGrey"
-            tools:text="12-03-2022 15:30 am"
-            android:textAlignment="viewStart"
-            android:layout_marginTop="2dp"
-            android:drawablePadding="5dp"
             android:fontFamily="@font/roboto_light"
-            android:textAppearance="@style/TextAppearance.Material3.LabelSmall" />
-
-
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:text="Positive" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

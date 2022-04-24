@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".modules.questions.presentation.view.QuestionsActivity">
+
+        <include
+            android:id="@+id/action_bar"
+            layout="@layout/action_bar_back_light" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_bar">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.ksa.unticovid.modules.core.presentation.QuestionView
+                    android:id="@+id/view_dyspnea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.ksa.unticovid.modules.core.presentation.QuestionView
+                    android:id="@+id/view_fever"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.ksa.unticovid.modules.core.presentation.QuestionView
+                    android:id="@+id/view_cough"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.ksa.unticovid.modules.core.presentation.QuestionView
+                    android:id="@+id/view_diarrhea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btn_submit"
+                    style="@style/PrimaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_enabled_button"
+                    android:text="@string/submit"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/layout_state_view"
+            layout="@layout/layout_state_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_bar" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

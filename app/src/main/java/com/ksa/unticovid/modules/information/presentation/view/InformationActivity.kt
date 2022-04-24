@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseActivity
+import com.ksa.unticovid.core.extentions.setupWebView
 import com.ksa.unticovid.core.extentions.showAlerterError
 import com.ksa.unticovid.databinding.ActivityInformationBinding
 import com.ksa.unticovid.modules.information.presentation.model.InformationEffects
@@ -15,22 +16,31 @@ import com.ksa.unticovid.modules.information.presentation.viewmodel.InformationV
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
+
 @AndroidEntryPoint
 class InformationActivity :
     BaseActivity<ActivityInformationBinding, InformationViewModel>(R.layout.activity_information) {
     override val viewModel: InformationViewModel by viewModels()
 
     override fun setup() {
+        initViews()
         initObservations()
         initActions()
 
         displayCovidInformation()
     }
 
+    private fun initViews() {
+        initWebView()
+    }
+
+    private fun initWebView() = with(binder.webView) { setupWebView() }
+
     private fun initActions() {
         binder.layoutStateView.tvRetry.setOnClickListener {
             displayCovidInformation()
         }
+        binder.actionBar.backImageButton.setOnClickListener { finish() }
     }
 
     private fun initObservations() {
@@ -69,6 +79,12 @@ class InformationActivity :
         uiModel.errorMessage?.let {
             binder.layoutStateView.tvErrorMessage.text = getString(it)
         }
+
+        uiModel.information?.let {
+            binder.webView.loadDataWithBaseURL(null, it.data, "text/html", "UTF-8", null)
+
+        }
+
     }
 
     private fun displayCovidInformation() = viewModel.getCovidInformation()

@@ -3,7 +3,7 @@ package com.ksa.unticovid.modules.information.presentation.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseViewModel
-import com.ksa.unticovid.modules.common.di.MainDispatcher
+import com.ksa.unticovid.modules.core.di.MainDispatcher
 import com.ksa.unticovid.modules.information.data.repository.InformationRepository
 import com.ksa.unticovid.modules.information.presentation.model.InformationEffects
 import com.ksa.unticovid.modules.information.presentation.model.InformationUIModel
@@ -18,8 +18,7 @@ import javax.inject.Inject
 class InformationViewModel @Inject constructor(
     @MainDispatcher val mainDispatcher: CoroutineDispatcher,
     private val repository: InformationRepository
-) :
-    BaseViewModel(mainDispatcher) {
+) : BaseViewModel(mainDispatcher) {
 
     private val _uiState = MutableStateFlow(InformationUIModel())
     val uiState: StateFlow<InformationUIModel> = _uiState
@@ -29,9 +28,9 @@ class InformationViewModel @Inject constructor(
 
     fun getCovidInformation() =
         launchBlock(onStart = { donOnStart() }, onError = { showError() }) {
-            repository.getInformation().collectLatest { factions ->
+            repository.getInformation().collectLatest { information ->
                 _uiState.value =
-                    _uiState.value.copy(isLoading = false, information = factions.toUIModel())
+                    _uiState.value.copy(isLoading = false, information = information.toUIModel())
             }
         }
 

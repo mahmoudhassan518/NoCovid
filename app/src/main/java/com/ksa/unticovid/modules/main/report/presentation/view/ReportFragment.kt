@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseFragment
 import com.ksa.unticovid.core.extentions.showAlerterError
+import com.ksa.unticovid.core.navigation.NavigationCoordinator
 import com.ksa.unticovid.databinding.FragmentReportBinding
+import com.ksa.unticovid.modules.main.core.presentation.navigation.MainNavigatorEvents
 import com.ksa.unticovid.modules.main.core.presentation.viewmodel.MainViewModel
 import com.ksa.unticovid.modules.main.report.presentation.adapter.ReportAdapter
 import com.ksa.unticovid.modules.main.report.presentation.model.ReportListEffects
@@ -26,6 +28,9 @@ class ReportFragment :
 
     private val mainViewModel: MainViewModel by activityViewModels()
     override val viewModel: ReportViewModel by viewModels()
+
+    @Inject
+    lateinit var navigator: NavigationCoordinator<MainNavigatorEvents>
 
     @Inject
     lateinit var reportAdapter: ReportAdapter
@@ -71,6 +76,9 @@ class ReportFragment :
 
     private fun initActions() {
         binder.layoutStateView.tvRetry.setOnClickListener { loadReports() }
+        reportAdapter.itemClickListener =  {
+            navigator.onEvent(MainNavigatorEvents.OpenReportDetailsScreen(it.covidData))
+        }
     }
 
     private fun initObservations() {

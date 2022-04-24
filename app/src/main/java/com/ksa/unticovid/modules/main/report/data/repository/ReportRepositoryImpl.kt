@@ -1,7 +1,7 @@
 package com.ksa.unticovid.modules.main.report.data.repository
 
 import com.ksa.unticovid.base.BaseRepository
-import com.ksa.unticovid.modules.common.di.IODispatcher
+import com.ksa.unticovid.modules.core.di.IODispatcher
 import com.ksa.unticovid.modules.main.report.data.model.mapper.toEntity
 import com.ksa.unticovid.modules.main.report.data.source.ReportRemoteSource
 import com.ksa.unticovid.modules.main.report.domain.entity.ReportEntity
@@ -16,5 +16,7 @@ class ReportRepositoryImpl @Inject constructor(
 ) :
     ReportRepository, BaseRepository(ioDispatcher) {
     override fun getUserReports(): Flow<List<ReportEntity>> =
-        requestHandler { remoteSource.getUserReports().map { it.toEntity() } }
+        requestHandler {
+            remoteSource.getUserReports().date.map { it.toEntity() }
+        }
 }

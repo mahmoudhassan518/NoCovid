@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@drawable/bg_white_corners_5_dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_enabled_button"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:textColor="@color/white"
+            android:text="@string/male"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_regular"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="5dp"
+            android:textColor="@color/black"
+            android:text="@string/female"
+            android:textSize="15sp"
+            android:fontFamily="@font/roboto_regular"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

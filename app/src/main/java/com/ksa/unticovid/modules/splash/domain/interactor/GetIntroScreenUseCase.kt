@@ -1,7 +1,7 @@
 package com.ksa.unticovid.modules.splash.domain.interactor
 
 import com.ksa.unticovid.base.BaseUseCase
-import com.ksa.unticovid.modules.user.domain.interactor.GetLocalUserUseCase
+import com.ksa.unticovid.modules.user_management.user.domain.interactor.GetLocalUserUseCase
 import com.mahmoud.myframework.modules.splash.domain.IntroScreen
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.Flow

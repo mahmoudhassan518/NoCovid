@@ -1,24 +1,21 @@
 package com.ksa.unticovid.core.extentions
 
+import android.Manifest
 import android.app.Activity
-import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Insets
-import com.ksa.unticovid.R
-import com.tapadoo.alerter.Alerter
+import android.net.Uri
+import android.os.Build
 import android.util.DisplayMetrics
 import android.view.WindowInsets
-
-import android.view.WindowMetrics
-
-import android.os.Build
-
-import androidx.annotation.NonNull
-import androidx.core.content.ContextCompat.startActivity
-
-import android.content.Intent
-import android.net.Uri
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
+import com.ksa.unticovid.BuildConfig
+import com.ksa.unticovid.R
+import com.tapadoo.alerter.Alerter
+import java.io.File
 
 
 fun Activity.showAlerterError(
@@ -62,6 +59,7 @@ fun Activity.getScreenHeight(): Int {
         displayMetrics.heightPixels
     }
 }
+
 fun Activity.getScreenWidth(): Int {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         val windowMetrics = windowManager.currentWindowMetrics
@@ -75,14 +73,38 @@ fun Activity.getScreenWidth(): Int {
     }
 }
 
- fun Activity.isTablet(): Boolean {
+fun Activity.isTablet(): Boolean {
     return ((resources.configuration.screenLayout
             and Configuration.SCREENLAYOUT_SIZE_MASK)
             >= Configuration.SCREENLAYOUT_SIZE_LARGE)
 }
 
- fun Activity.callPhoneNumber(phone: String) {
+fun Activity.callPhoneNumber(phone: String) {
     val callIntent = Intent(Intent.ACTION_DIAL)
     callIntent.data = Uri.parse("tel:$phone")
     startActivity(callIntent)
 }
+
+fun Activity.getTmpFileUri(): Uri {
+    val tmpFile =
+        File.createTempFile("tmp_image_file", ".png", this.cacheDir).apply {
+            createNewFile()
+            deleteOnExit()
+        }
+
+    return FileProvider.getUriForFile(
+        this,
+        "${BuildConfig.APPLICATION_ID}.provider",
+        tmpFile
+    )
+}
+
+fun Activity.hasCameraPermission() = ContextCompat.checkSelfPermission(
+    this,
+    Manifest.permission.CAMERA
+) == PackageManager.PERMISSION_GRANTED
+
+fun Activity.hasExternalStoragePermission() = ContextCompat.checkSelfPermission(
+    this,
+    Manifest.permission.READ_EXTERNAL_STORAGE
+) == PackageManager.PERMISSION_GRANTED

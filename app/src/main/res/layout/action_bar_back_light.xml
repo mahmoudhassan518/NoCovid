@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="?actionBarSize"
-    android:background="@android:color/transparent"
-    app:contentInsetEnd="0dp">
+<layout>
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@android:color/transparent"
+        app:contentInsetEnd="0dp">
 
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/back_ImageButton"
-        android:layout_width="@dimen/dimen_main_icons_size"
-        android:layout_height="@dimen/dimen_main_icons_size"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_back_primary" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_ImageButton"
+            android:layout_width="@dimen/dimen_main_icons_size"
+            android:layout_height="@dimen/dimen_main_icons_size"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_back_primary" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/actionBarTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
-        android:textColor="@color/colorPrimary"
-        tools:text="@string/app_name" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actionBarTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.Material3.ActionBar.Title"
+            android:textColor="@color/colorPrimary"
+            tools:text="@string/app_name" />
 
 
-</androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
+</layout>

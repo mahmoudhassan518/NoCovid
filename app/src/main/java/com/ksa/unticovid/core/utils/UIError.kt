@@ -10,31 +10,53 @@ data class UIError(
 ) {
     companion object {
 
-        fun getUnexpectedException(): UIError {
+        fun getUnexpectedError(): UIError {
             return UIError(
                 title = R.string.error,
                 msg = R.string.msgSomethingWentWrong
             )
         }
 
-        fun failedToGetUserData(): UIError {
+        fun failedToGetUserDataError(): UIError {
             return UIError(
                 title = R.string.error,
                 msg = R.string.failedGetProfileError
             )
         }
 
-        fun hasBlankFields(): UIError {
+        fun hasBlankFieldsError(): UIError {
             return UIError(
                 title = R.string.error,
                 msg = R.string.emptyFields // R.string.msgWrong
             )
         }
 
-        fun invalidNationalId(): UIError {
+        fun getInvalidNationalIdError(): UIError {
             return UIError(
                 title = R.string.error,
                 msg = R.string.invalidNationalId
+            )
+        }
+
+        fun getInvalidEmailAddressError(): UIError {
+            return UIError(
+                title = R.string.error,
+                msg = R.string.invalidEmailAddress
+            )
+        }
+
+        fun getPasswordMissMatchError(): UIError {
+            return UIError(
+                title = R.string.error,
+                msg = R.string.passwordMissMatchMsg
+            )
+        }
+
+
+        fun getPasswordLengthError(): UIError {
+            return UIError(
+                title = R.string.error,
+                msg = R.string.passwordLengthErrorMsg
             )
         }
     }

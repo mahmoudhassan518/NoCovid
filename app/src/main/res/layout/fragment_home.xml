@@ -14,21 +14,21 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.ksa.unticovid.modules.common.presentation.custom_view.DisplayInfoView
+            <com.ksa.unticovid.modules.core.presentation.custom_view.DisplayInfoView
                 android:id="@+id/item_information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:item_image="@drawable/ic_information"
                 app:item_label="@string/information" />
 
-            <com.ksa.unticovid.modules.common.presentation.custom_view.DisplayInfoView
+            <com.ksa.unticovid.modules.core.presentation.custom_view.DisplayInfoView
                 android:id="@+id/item_faction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:item_image="@drawable/ic_faction"
                 app:item_label="@string/faction" />
 
-            <com.ksa.unticovid.modules.common.presentation.custom_view.DisplayInfoView
+            <com.ksa.unticovid.modules.core.presentation.custom_view.DisplayInfoView
                 android:id="@+id/item_test"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

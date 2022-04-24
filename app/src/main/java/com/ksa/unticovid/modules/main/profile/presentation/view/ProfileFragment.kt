@@ -13,7 +13,8 @@ import com.ksa.unticovid.modules.main.core.presentation.viewmodel.MainViewModel
 import com.ksa.unticovid.modules.main.profile.presentation.model.ProfileEffects
 import com.ksa.unticovid.modules.main.profile.presentation.model.ProfileUIModel
 import com.ksa.unticovid.modules.main.profile.presentation.viewmodel.ProfileViewModel
-import com.ksa.unticovid.modules.user.domain.entity.param.UserParam
+import com.ksa.unticovid.modules.user_management.user.domain.entity.UserEntity
+import com.ksa.unticovid.modules.user_management.user.domain.entity.param.UserParam
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -44,8 +45,10 @@ class ProfileFragment :
             viewModel.saveProfileData(
                 UserParam(
                     name = binder.viewProfileInputs.etName.text.toString(),
-                    nationalId = binder.viewProfileInputs.etNationalId.text.toString(),
-                    phoneNumber = binder.viewProfileInputs.etPhone.text.toString()
+                    email = binder.viewProfileInputs.etEmail.text.toString(),
+                    phoneNumber = binder.viewProfileInputs.etPhone.text.toString(),
+                    age = binder.viewProfileInputs.etAge.text.toString(),
+                    address = binder.viewProfileInputs.etAddress.text.toString(),
                 )
             )
         }
@@ -67,14 +70,16 @@ class ProfileFragment :
 
     private fun renderUiModel(uiModel: ProfileUIModel) {
         renderStateView(uiModel)
+    }
 
-        uiModel.user?.let { user ->
-            binder.viewProfileInputs.tvWelcomeMessage.text =
-                getString(R.string.profileWelcomeMessage, user.name)
-            binder.viewProfileInputs.etName.setText(user.name)
-            binder.viewProfileInputs.etNationalId.setText(user.nationalId)
-            binder.viewProfileInputs.etPhone.setText(user.phoneNumber)
-        }
+    private fun renderUserData(user: UserEntity) = with(user) {
+        binder.viewProfileInputs.tvWelcomeMessage.text =
+            getString(R.string.profileWelcomeMessage, user.name)
+        binder.viewProfileInputs.etName.setText(user.name)
+        binder.viewProfileInputs.etEmail.setText(user.email)
+        binder.viewProfileInputs.etPhone.setText(user.phoneNumber)
+        binder.viewProfileInputs.etAge.setText(user.age)
+        binder.viewProfileInputs.etAddress.setText(user.address)
     }
 
     private fun renderStateView(uiModel: ProfileUIModel) {
@@ -84,21 +89,14 @@ class ProfileFragment :
 
     private fun renderEffects(it: ProfileEffects) {
         when (it) {
-            is ProfileEffects.ShowProfileError -> requireActivity().showAlerterError(
-                errorMessage = requireActivity().getString(
-                    it.error.msg
-                ),
-                errorTitle = it.error.title?.let { it1 ->
-                    requireActivity().getString(
-                        it1
-                    )
-                }
-            )
-            is ProfileEffects.ShowProfileSuccessfulAlert -> requireActivity().showAlerterSuccess(
+            is ProfileEffects.ShowResourceError -> requireActivity().showAlerterError(
                 requireActivity().getString(
-                    it.message
+                    it.error.msg
                 )
             )
+            is ProfileEffects.ShowRemoteError -> requireActivity().showAlerterError(it.error)
+            is ProfileEffects.DisplayUserData -> renderUserData(it.user)
+            is ProfileEffects.ShowProfileSuccessfulAlert -> requireActivity().showAlerterSuccess(it.message)
         }
     }
 }

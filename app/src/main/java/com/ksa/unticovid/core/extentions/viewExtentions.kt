@@ -6,6 +6,9 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.TypefaceSpan
+import android.webkit.WebChromeClient
+import android.webkit.WebSettings
+import android.webkit.WebView
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import com.ksa.unticovid.R
@@ -55,4 +58,12 @@ fun TextView.setAppTitleSpanStyle(context: Context) {
         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
     )
     this.text = title
+}
+
+fun WebView.setupWebView() {
+//    settings.javaScriptEnabled = true
+    settings.javaScriptCanOpenWindowsAutomatically = true
+    settings.pluginState = WebSettings.PluginState.ON
+    settings.mediaPlaybackRequiresUserGesture = false
+    webChromeClient = WebChromeClient()
 }

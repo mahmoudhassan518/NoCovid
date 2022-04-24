@@ -34,25 +34,8 @@
 
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/et_nationalId"
-                style="@style/ProfileTextView"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_field_height"
-                android:layout_marginTop="16dp"
-                android:drawableStart="@drawable/ic_verified_user"
-                android:drawablePadding="8dp"
-                android:hint="@string/nationalId"
-                android:inputType="number"
-                android:maxLength="30"
-                android:maxLines="1"
-                android:textAlignment="viewStart"
-                android:textCursorDrawable="@drawable/cursor_color" />
-
-            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_name"
                 style="@style/ProfileTextView"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_field_height"
                 android:layout_marginTop="16dp"
                 android:drawableStart="@drawable/ic_user"
                 android:drawablePadding="8dp"
@@ -60,24 +43,55 @@
                 android:inputType="text"
                 android:maxLength="30"
                 android:maxLines="1"
-                android:textAlignment="viewStart"
-                android:textCursorDrawable="@drawable/cursor_color" />
+                android:textAlignment="viewStart" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_email"
+                style="@style/ProfileTextView"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_baseline_email_24"
+                android:drawablePadding="8dp"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:textAlignment="viewStart" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_phone"
                 style="@style/ProfileTextView"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_field_height"
                 android:layout_marginTop="16dp"
                 android:drawableStart="@drawable/ic_phone"
                 android:drawablePadding="8dp"
                 android:hint="@string/phoneNumber"
                 android:inputType="phone"
-                android:maxLength="30"
+                android:maxLength="15"
                 android:maxLines="1"
-                android:textAlignment="viewStart"
-                android:textCursorDrawable="@drawable/cursor_color" />
+                android:textAlignment="viewStart" />
 
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_address"
+                style="@style/ProfileTextView"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_address"
+                android:drawablePadding="8dp"
+                android:hint="@string/address"
+                android:inputType="text"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:textAlignment="viewStart" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_age"
+                style="@style/ProfileTextView"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_age"
+                android:drawablePadding="8dp"
+                android:hint="@string/age"
+                android:inputType="number"
+                android:maxLength="2"
+                android:maxLines="1"
+                android:textAlignment="viewStart" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btn_save"

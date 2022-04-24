@@ -3,11 +3,11 @@ package com.ksa.unticovid.modules.main.report.presentation.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseViewModel
-import com.ksa.unticovid.modules.common.di.MainDispatcher
+import com.ksa.unticovid.modules.core.di.MainDispatcher
 import com.ksa.unticovid.modules.main.report.domain.interactor.GetUserOrdersUseCase
 import com.ksa.unticovid.modules.main.report.presentation.model.ReportListEffects
 import com.ksa.unticovid.modules.main.report.presentation.model.ReportUIModel
-import com.ksa.unticovid.modules.main.report.presentation.model.toUIModel
+import com.ksa.unticovid.modules.main.report.presentation.model.mapper.toUIModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.*

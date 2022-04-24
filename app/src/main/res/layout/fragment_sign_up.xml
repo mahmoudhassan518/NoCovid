@@ -42,57 +42,94 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     android:textColor="@color/white" />
 
+                <include
+                    android:id="@+id/layout_gender_view"
+                    layout="@layout/layout_gender_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp" />
+
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_nationalId"
                     style="@style/ProfileTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_field_height"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:drawableStart="@drawable/ic_verified_user"
                     android:drawablePadding="8dp"
                     android:hint="@string/nationalId"
                     android:inputType="number"
                     android:maxLength="30"
                     android:maxLines="1"
-                    android:textAlignment="viewStart"
-                    android:textCursorDrawable="@drawable/cursor_color" />
+                    android:textAlignment="viewStart" />
+
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_name"
                     style="@style/ProfileTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_field_height"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:drawableStart="@drawable/ic_user"
                     android:drawablePadding="8dp"
                     android:hint="@string/name"
                     android:inputType="text"
                     android:maxLength="30"
                     android:maxLines="1"
-                    android:textAlignment="viewStart"
-                    android:textCursorDrawable="@drawable/cursor_color" />
+                    android:textAlignment="viewStart" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_email"
+                    style="@style/ProfileTextView"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/ic_baseline_email_24"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:textAlignment="viewStart" />
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_phone"
                     style="@style/ProfileTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_field_height"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:drawableStart="@drawable/ic_phone"
                     android:drawablePadding="8dp"
                     android:hint="@string/phoneNumber"
                     android:inputType="phone"
-                    android:maxLength="30"
+                    android:maxLength="15"
                     android:maxLines="1"
-                    android:textAlignment="viewStart"
-                    android:textCursorDrawable="@drawable/cursor_color" />
+                    android:textAlignment="viewStart" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_address"
+                    style="@style/ProfileTextView"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/ic_address"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/address"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:textAlignment="viewStart" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_age"
+                    style="@style/ProfileTextView"
+                    android:layout_marginTop="8dp"
+                    android:drawableStart="@drawable/ic_age"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/age"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:maxLines="1"
+                    android:textAlignment="viewStart" />
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_current_password"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_field_height"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     app:boxBackgroundMode="none"
                     app:hintEnabled="false"
                     app:passwordToggleEnabled="true">
@@ -113,7 +150,7 @@
                     android:id="@+id/til_confirm_password"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_field_height"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     app:boxBackgroundMode="none"
                     app:hintEnabled="false"
                     app:passwordToggleEnabled="true">
@@ -172,7 +209,11 @@
 
             <include
                 android:id="@+id/layout_state_view"
-                layout="@layout/layout_state_view" />
+                layout="@layout/layout_state_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -3,7 +3,7 @@ package com.ksa.unticovid.modules.faction.presentation.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseViewModel
-import com.ksa.unticovid.modules.common.di.MainDispatcher
+import com.ksa.unticovid.modules.core.di.MainDispatcher
 import com.ksa.unticovid.modules.faction.data.repository.FactionRepository
 import com.ksa.unticovid.modules.faction.presentation.model.FactionsEffects
 import com.ksa.unticovid.modules.faction.presentation.model.FactionsUIModel
