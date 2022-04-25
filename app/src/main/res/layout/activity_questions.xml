@@ -13,16 +13,95 @@
             layout="@layout/action_bar_back_light" />
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/ns_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:fillViewport="true"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_submit"
             app:layout_constraintTop_toBottomOf="@id/action_bar">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/bg_light_grey_stroke_corners_5_dp"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_age_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2.5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_white_corners_5_dp"
+                            android:paddingVertical="5dp"
+                            android:text="@string/age"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_age"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2.5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_white_corners_5_dp"
+                            android:paddingVertical="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_agender_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2.5dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/roboto_regular"
+
+                            android:background="@drawable/bg_white_corners_5_dp"
+                            android:paddingVertical="5dp"
+                            android:text="@string/gender"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_gender"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+
+                            android:layout_marginStart="2.5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_white_corners_5_dp"
+                            android:paddingVertical="5dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <com.ksa.unticovid.modules.core.presentation.QuestionView
                     android:id="@+id/view_dyspnea"
@@ -45,23 +124,25 @@
                     android:layout_height="wrap_content" />
 
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/btn_submit"
-                    style="@style/PrimaryButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_margin="16dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/bg_enabled_button"
-                    android:text="@string/submit"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btn_submit"
+            style="@style/PrimaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_enabled_button"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/submit"
+            app:layout_constraintTop_toBottomOf="@id/ns_container"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <include
             android:id="@+id/layout_state_view"

@@ -34,7 +34,7 @@ class ProfileViewModel @Inject constructor(
     private val _uiEffects = MutableSharedFlow<ProfileEffects>(replay = 0)
     val uiEffects: SharedFlow<ProfileEffects> = _uiEffects
 
-    fun updateEffect(effect: ProfileEffects) = viewModelScope.launch { _uiEffects.emit(effect) }
+    private fun updateEffect(effect: ProfileEffects) = viewModelScope.launch { _uiEffects.emit(effect) }
 
     init {
         getLocalUserData()

@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">No Covid</string>
-    <string name="app_name_first">No</string>
-    <string name="app_name_last">Covid</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">PCT System</string>
+    <string name="app_name_first">PCT</string>
+    <string name="app_name_last">System</string>
+
+
     <string name="signInWelcomeMessage">Welcome Back!</string>
     <string name="signInMainMessage">Please login to your account.</string>
     <string name="nationalId">National ID</string>
@@ -35,6 +36,7 @@
     <string name="emptyReportMessage">No Reports Yet.</string>
     <string name="emptyListMessage">empty list!</string>
     <string name="profileWelcomeMessage">Hello %1$s</string>
+    <string name="profileWelcomeHelloLabel">Hello</string>
     <string name="profileMessage">Keep Your life healthy</string>
     <string name="save">Save</string>
 
@@ -74,4 +76,5 @@
     <string name="positive">Positive</string>
     <string name="negative">Negative</string>
     <string name="uploadReportSuccessfully">Report uploaded successfully</string>
+    <string name="gender">Gender</string>
 </resources>

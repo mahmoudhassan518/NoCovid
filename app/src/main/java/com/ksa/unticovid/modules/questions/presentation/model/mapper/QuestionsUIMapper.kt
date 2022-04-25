@@ -12,7 +12,7 @@ fun QuestionsDataUIModel.toParam() = SubmitQuestionsParam(
 
 fun SubmitQuestionEntity.toUIModel() = QuestionsResultUIModel(
     message = message,
-    hasCovid = !clear,
+    hasCovid = clear,
     hasDoctorData = doctorId != null && doctorMobile != null,
     doctorId = doctorId,
     doctorAddress = doctorAddress,

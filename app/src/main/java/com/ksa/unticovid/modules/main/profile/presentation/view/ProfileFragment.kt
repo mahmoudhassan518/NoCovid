@@ -73,8 +73,10 @@ class ProfileFragment :
     }
 
     private fun renderUserData(user: UserEntity) = with(user) {
+//        binder.viewProfileInputs.tvWelcomeMessage.text =
+//            getString(R.string.profileWelcomeMessage, user.name)
         binder.viewProfileInputs.tvWelcomeMessage.text =
-            getString(R.string.profileWelcomeMessage, user.name)
+            getString(R.string.profileWelcomeHelloLabel)
         binder.viewProfileInputs.etName.setText(user.name)
         binder.viewProfileInputs.etEmail.setText(user.email)
         binder.viewProfileInputs.etPhone.setText(user.phoneNumber)

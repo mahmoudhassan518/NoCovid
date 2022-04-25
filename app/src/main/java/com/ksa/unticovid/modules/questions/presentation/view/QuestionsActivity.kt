@@ -60,6 +60,8 @@ class QuestionsActivity :
             renderQuestionsData()
         }
 
+        binder.tvAge.text = age
+        binder.tvGender.text = gender?.let { getString(it) }
         questionsResult?.showResultDialog()
     }
 

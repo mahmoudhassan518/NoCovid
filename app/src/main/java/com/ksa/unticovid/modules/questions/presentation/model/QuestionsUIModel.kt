@@ -2,13 +2,14 @@ package com.ksa.unticovid.modules.questions.presentation.model
 
 data class QuestionsUIModel(
     val question: QuestionsDataUIModel = QuestionsDataUIModel(),
+    val gender: Int? = null,
+    val age: String? = null,
     val isLoading: Boolean = false,
     val questionsResult: QuestionsResultUIModel? = null,
 )
 
 data class QuestionsDataUIModel(
-//    val gender: GenderType? = null,
-//    val age: String? = null,
+
     val hasDyspnea: Boolean = false,
     val hasFever: Boolean = false,
     val hasCough: Boolean = false,
