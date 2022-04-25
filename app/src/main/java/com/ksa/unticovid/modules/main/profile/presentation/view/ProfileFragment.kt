@@ -1,5 +1,6 @@
 package com.ksa.unticovid.modules.main.profile.presentation.view
 
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -99,6 +100,7 @@ class ProfileFragment :
             is ProfileEffects.ShowRemoteError -> requireActivity().showAlerterError(it.error)
             is ProfileEffects.DisplayUserData -> renderUserData(it.user)
             is ProfileEffects.ShowProfileSuccessfulAlert -> requireActivity().showAlerterSuccess(it.message)
+            is ProfileEffects.ShowToast -> Toast.makeText(requireActivity() , getString(it.text), Toast.LENGTH_SHORT).show()
         }
     }
 }

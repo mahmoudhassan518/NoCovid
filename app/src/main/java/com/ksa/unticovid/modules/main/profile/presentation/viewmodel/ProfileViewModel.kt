@@ -1,9 +1,11 @@
 package com.ksa.unticovid.modules.main.profile.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
+import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseViewModel
 import com.ksa.unticovid.core.exception.EmptyFieldsException
 import com.ksa.unticovid.core.exception.InvalidEmailException
+import com.ksa.unticovid.core.exception.NoChangeException
 import com.ksa.unticovid.core.exception.RemoteException
 import com.ksa.unticovid.core.utils.UIError
 import com.ksa.unticovid.modules.core.di.MainDispatcher
@@ -86,6 +88,7 @@ class ProfileViewModel @Inject constructor(
             is RemoteException -> showErrorRemote()
             is InvalidEmailException -> showErrorResource(UIError.getInvalidEmailAddressError())
             is EmptyFieldsException -> showErrorResource(UIError.hasBlankFieldsError())
+            is NoChangeException ->  updateEffect(ProfileEffects.ShowToast(R.string.noChangesFoundMsg))
             else -> showErrorResource(UIError.getUnexpectedError())
         }.also {
             _uiState.value = _uiState.value.copy(isLoading = false)

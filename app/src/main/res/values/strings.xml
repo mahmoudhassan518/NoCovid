@@ -77,4 +77,5 @@
     <string name="negative">Negative</string>
     <string name="uploadReportSuccessfully">Report uploaded successfully</string>
     <string name="gender">Gender</string>
+    <string name="noChangesFoundMsg">No changes found!</string>
 </resources>

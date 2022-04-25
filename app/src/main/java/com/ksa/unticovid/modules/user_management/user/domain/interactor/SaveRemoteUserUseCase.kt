@@ -3,9 +3,9 @@ package com.ksa.unticovid.modules.user_management.user.domain.interactor
 import com.ksa.unticovid.base.BaseUseCase
 import com.ksa.unticovid.core.exception.EmptyFieldsException
 import com.ksa.unticovid.core.exception.InvalidEmailException
+import com.ksa.unticovid.core.exception.NoChangeException
 import com.ksa.unticovid.core.extentions.isValidEmail
 import com.ksa.unticovid.core.utils.ResponseContract
-import com.ksa.unticovid.modules.user_management.signup.domain.entity.param.SignUpParam
 import com.ksa.unticovid.modules.user_management.user.domain.entity.UserEntity
 import com.ksa.unticovid.modules.user_management.user.domain.entity.param.UserParam
 import com.ksa.unticovid.modules.user_management.user.domain.repository.UserRepository
@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
 class SaveRemoteUserUseCase @Inject constructor(
-    private val repository: UserRepository
+    private val repository: UserRepository,
 ) : BaseUseCase<UserParam, ResponseContract<UserEntity>>() {
 
     override fun invoke(param: UserParam): Flow<ResponseContract<UserEntity>> = with(param) {
@@ -26,19 +26,33 @@ class SaveRemoteUserUseCase @Inject constructor(
         saveRemoteData(this)
     }
 
-    private fun UserParam.hasEmptyFields() =
+    private fun saveRemoteData(param: UserParam) =
+        repository.getLocalUser().flatMapLatest {
 
-                email.isEmpty() ||
+            if (param.areContentTheSame(it))
+                throw  NoChangeException
+            else
+                repository.saveRemoteUser(param).flatMapLatest { contract ->
+                    repository.saveLocalUser(contract.response).flatMapLatest {
+                        repository.getLocalUser().flatMapLatest {
+                            flowOf(contract.copy(response = it))
+                        }
+                    }
+                }
+        }
+
+    private fun UserParam.areContentTheSame(user: UserEntity) =
+        name == user.name &&
+                email == user.email &&
+                phoneNumber == user.phoneNumber &&
+                address == user.address &&
+                age == user.age
+
+    private fun UserParam.hasEmptyFields() =
+        email.isEmpty() ||
                 address.trim().isEmpty() ||
                 name.isEmpty() ||
                 age.isEmpty() ||
                 address.isEmpty()
-    private fun saveRemoteData(param: UserParam) =
-        repository.saveRemoteUser(param).flatMapLatest { contract ->
-            repository.saveLocalUser(contract.response).flatMapLatest {
-                repository.getLocalUser().flatMapLatest {
-                    flowOf(contract.copy(response = it))
-                }
-            }
-        }
+
 }
