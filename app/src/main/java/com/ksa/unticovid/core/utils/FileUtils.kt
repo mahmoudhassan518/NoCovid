@@ -348,7 +348,7 @@ class FileUtils @Inject constructor(@ApplicationContext private val context: Con
         val f = File(context.cacheDir, "image" + Random().nextLong())
         f.createNewFile()
         val bos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 90 /*ignored for PNG*/, bos)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 60 /*ignored for PNG*/, bos)
         val bitmapdata = bos.toByteArray()
 
 //write the bytes in file
