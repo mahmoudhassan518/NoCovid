@@ -42,17 +42,17 @@ class SaveRemoteUserUseCase @Inject constructor(
         }
 
     private fun UserParam.areContentTheSame(user: UserEntity) =
-        name == user.name &&
-                email == user.email &&
-                phoneNumber == user.phoneNumber &&
-                address == user.address &&
-                age == user.age
+        name.trim() == user.name &&
+                email.trim() == user.email &&
+                phoneNumber.trim() == user.phoneNumber &&
+                address.trim() == user.address &&
+                age.trim() == user.age
 
     private fun UserParam.hasEmptyFields() =
         email.isEmpty() ||
                 address.trim().isEmpty() ||
-                name.isEmpty() ||
+                name.trim().isEmpty() ||
                 age.isEmpty() ||
-                address.isEmpty()
+                address.trim().isEmpty()
 
 }

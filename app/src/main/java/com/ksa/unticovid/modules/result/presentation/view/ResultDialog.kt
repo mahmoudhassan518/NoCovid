@@ -48,6 +48,12 @@ class ResultDialog :
     }
 
     private fun initViews() {
+
+        binder.lyDoctor.isVisible = params!!.isInfected
+        binder.tvAddress.text = params!!.doctorAddress
+        binder.tvMobile.text = params!!.doctorNumber
+        binder.tvName.text = params!!.doctorName
+
         binder.btnStroke.isVisible = params!!.isInfected
         binder.tvResultDescription.text = params?.resultText
         binder.btnSolid.text =

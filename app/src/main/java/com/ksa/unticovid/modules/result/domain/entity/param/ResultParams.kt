@@ -9,4 +9,5 @@ data class ResultParams(
     val isInfected: Boolean,
     val doctorNumber: String? = null,
     val doctorName: String? = null,
+    val doctorAddress: String? = null,
 ) : Parcelable

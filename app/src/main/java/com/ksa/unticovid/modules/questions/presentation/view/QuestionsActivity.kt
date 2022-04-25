@@ -72,7 +72,8 @@ class QuestionsActivity :
                     resultText = message,
                     isInfected = hasCovid,
                     doctorName = doctorName,
-                    doctorNumber = doctorMobile
+                    doctorNumber = doctorMobile,
+                    doctorAddress = doctorAddress
                 )
             )
             resultDialog?.show(

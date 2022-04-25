@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_white_corners_5_dp"
@@ -53,15 +53,153 @@
 
 
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="0dp"
+                android:id="@+id/ly_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/bg_light_grey_stroke_corners_5_dp"
                 android:orientation="vertical"
+                android:padding="5dp"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/tv_result_description"
+                tools:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/callDoctorMsg"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_name_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="2.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_white_corners_5_dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:paddingVertical="5dp"
+                        android:text="@string/name"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="2.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_white_corners_5_dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:paddingHorizontal="3dp"
+                        android:paddingVertical="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:text="gfsdhgfhdfghdfghdfghdfghdfghdfghdfghdfghdfghdfgh" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_mobile_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="2.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_white_corners_5_dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:paddingVertical="5dp"
+                        android:text="@string/phoneNumber"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_mobile"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="2.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_white_corners_5_dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:paddingHorizontal="3dp"
+
+                        android:paddingVertical="5dp"
+
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:text="gfsdhgfhdfghdfghdfghdfghdfghdfghdfghdfghdfghdfgh" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_address_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="2.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_white_corners_5_dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:paddingVertical="5dp"
+                        android:text="@string/address"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="2.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_white_corners_5_dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center"
+                        android:paddingHorizontal="3dp"
+
+                        android:paddingVertical="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:text="gfsdhgfhdfghdfghdfghdfghdfghdfghdfghdfghdfghdfgh" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="87dp"
                 android:gravity="bottom"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_result_description"
+                app:layout_constraintTop_toBottomOf="@id/ly_doctor"
                 app:layout_constraintWidth_percent="1">
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -81,9 +219,9 @@
                     style="@style/PrimaryButton"
                     android:layout_width="match_parent"
                     android:layout_height="38dp"
+                    android:layout_marginTop="16dp"
                     android:background="@drawable/bg_primary_stroke_corners_5_dp"
                     android:text="@string/ignoreAnyWayLabel"
-                    android:layout_marginTop="16dp"
                     android:textColor="@color/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

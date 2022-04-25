@@ -48,7 +48,7 @@
     <string name="invalidEmailAddress">Invalid email address</string>
     <string name="retry">Retry</string>
     <string name="result_title_negative">Yay! You are safe!</string>
-    <string name="callDoctorLabel">Call covid-19 Emergency</string>
+    <string name="callDoctorLabel">Call Doctor</string>
     <string name="ignoreAnyWayLabel">Ignore anyway</string>
     <string name="result_title_positive">"Oh! We suspect that you have symptoms of Covid-19"</string>
     <string name="newAnalysis">Add New Analysis</string>
@@ -78,4 +78,5 @@
     <string name="uploadReportSuccessfully">Report uploaded successfully</string>
     <string name="gender">Gender</string>
     <string name="noChangesFoundMsg">No changes found!</string>
+    <string name="callDoctorMsg">We suggest you a this doctor to contact with</string>
 </resources>
