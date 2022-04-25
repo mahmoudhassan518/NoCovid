@@ -5,5 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface ReportRepository {
 
-    fun getUserReports(): Flow<List<ReportEntity>>
+    fun getReports(): Flow<List<ReportEntity>>
+    fun getReportDetails(id: String): Flow<ReportEntity>
 }

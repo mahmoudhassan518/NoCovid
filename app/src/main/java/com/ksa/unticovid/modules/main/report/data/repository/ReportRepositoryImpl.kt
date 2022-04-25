@@ -15,8 +15,11 @@ class ReportRepositoryImpl @Inject constructor(
     private val remoteSource: ReportRemoteSource
 ) :
     ReportRepository, BaseRepository(ioDispatcher) {
-    override fun getUserReports(): Flow<List<ReportEntity>> =
-        requestHandler {
-            remoteSource.getUserReports().date.map { it.toEntity() }
-        }
+    override fun getReports(): Flow<List<ReportEntity>> = requestHandler {
+        remoteSource.getReports().date.map { it.toEntity() }
+    }
+
+    override fun getReportDetails(id: String): Flow<ReportEntity> = requestHandler {
+        remoteSource.getReportDetails(id).date.toEntity()
+    }
 }

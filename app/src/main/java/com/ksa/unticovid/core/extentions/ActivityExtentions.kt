@@ -5,6 +5,8 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Insets
 import android.net.Uri
 import android.os.Build
@@ -23,12 +25,12 @@ fun Activity.showAlerterError(
     errorTitle: String? = null
 ) {
     Alerter.create(this)
-        .setIcon(R.drawable.ic_error)
+        .setIcon(R.drawable.ic_failed)
         .setTitle(errorTitle ?: getString(R.string.error))
         .setTitleAppearance(R.style.AlertTextAppearance_Title)
         .setText(errorMessage)
         .setTextAppearance(R.style.AlertTextAppearance_Text)
-        .setBackgroundColorInt(resources.getColor(R.color.colorError))
+        .setBackgroundColorInt(ContextCompat.getColor(applicationContext, R.color.colorError))
         .enableSwipeToDismiss()
         .show()
 }
@@ -42,7 +44,7 @@ fun Activity.showAlerterSuccess(
         .setTitleAppearance(R.style.AlertTextAppearance_Title)
         .setText(errorMessage)
         .setTextAppearance(R.style.AlertTextAppearance_Text)
-        .setBackgroundColorInt(resources.getColor(R.color.colorSuccess))
+        .setBackgroundColorInt(ContextCompat.getColor(applicationContext, R.color.colorSuccess))
         .enableSwipeToDismiss()
         .show()
 }
@@ -98,6 +100,9 @@ fun Activity.getTmpFileUri(): Uri {
         tmpFile
     )
 }
+
+fun Activity.getBitmapFromUri(imageUri: Uri): Bitmap =
+    BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri))
 
 fun Activity.hasCameraPermission() = ContextCompat.checkSelfPermission(
     this,

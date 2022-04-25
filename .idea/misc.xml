@@ -18,7 +18,9 @@
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.26614583333333336" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_baseline_hourglass_empty_24.xml" value="0.25277777777777777" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_error.xml" value="0.25277777777777777" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_image_error.xml" value="0.14351851851851852" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_phone.xml" value="0.10740740740740741" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_placeholder.xml" value="0.14351851851851852" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_refresh.xml" value="0.14444444444444443" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_user.xml" value="0.10740740740740741" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/drawable/ic_verified_user.xml" value="0.26614583333333336" />
@@ -41,7 +43,7 @@
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/fragment_profile.xml" value="0.10194624652455977" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/fragment_report.xml" value="0.22327898550724637" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/fragment_sign_in.xml" value="0.2413793103448276" />
-        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/fragment_sign_up.xml" value="0.4" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/item_analysis.xml" value="0.25" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/item_analytics.xml" value="0.25" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/item_image.xml" value="0.12158054711246201" />
@@ -54,6 +56,7 @@
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/view_profile_inputs.xml" value="0.4" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/layout/view_question.xml" value="0.264" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/menu/main_bottom_navigation_menu.xml" value="0.25" />
+        <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14351851851851852" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/xml/network_security_config.xml" value="0.1" />
         <entry key="..\:/programming/nagwa-projects/NoCovid/app/src/main/res/xml/provider_paths.xml" value="0.128125" />
         <entry key="app/src/main/res/drawable/bg_disabled_button.xml" value="0.30104166666666665" />

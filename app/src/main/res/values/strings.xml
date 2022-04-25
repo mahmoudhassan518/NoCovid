@@ -31,6 +31,7 @@
     <string name="label_report_header">Covid-19 Test Requests</string>
 
     <string name="reportErrorMessage">error happen while fetching reports!</string>
+    <string name="reportDetailsErrorMessage">error happen while fetching report details!</string>
     <string name="emptyReportMessage">No Reports Yet.</string>
     <string name="emptyListMessage">empty list!</string>
     <string name="profileWelcomeMessage">Hello %1$s</string>
@@ -72,4 +73,5 @@
     <string name="submit">Submit</string>
     <string name="positive">Positive</string>
     <string name="negative">Negative</string>
+    <string name="uploadReportSuccessfully">Report uploaded successfully</string>
 </resources>

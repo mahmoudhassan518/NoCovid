@@ -10,7 +10,10 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.res.ResourcesCompat
+import coil.load
 import com.ksa.unticovid.R
 import com.ksa.unticovid.core.utils.CustomTypefaceSpan
 
@@ -66,4 +69,17 @@ fun WebView.setupWebView() {
     settings.pluginState = WebSettings.PluginState.ON
     settings.mediaPlaybackRequiresUserGesture = false
     webChromeClient = WebChromeClient()
+}
+
+fun AppCompatImageView.loadImage(
+    url: String,
+    crossFade: Boolean = true,
+    @DrawableRes placeholder: Int = R.drawable.ic_logo,
+    @DrawableRes error: Int = R.drawable.ic_image_error,
+) {
+    load(url) {
+        crossfade(crossFade)
+        placeholder(placeholder)
+        error(error)
+    }
 }

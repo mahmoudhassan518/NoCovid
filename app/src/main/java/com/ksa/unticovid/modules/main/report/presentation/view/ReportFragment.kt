@@ -15,7 +15,7 @@ import com.ksa.unticovid.databinding.FragmentReportBinding
 import com.ksa.unticovid.modules.main.core.presentation.navigation.MainNavigatorEvents
 import com.ksa.unticovid.modules.main.core.presentation.viewmodel.MainViewModel
 import com.ksa.unticovid.modules.main.report.presentation.adapter.ReportAdapter
-import com.ksa.unticovid.modules.main.report.presentation.model.ReportListEffects
+import com.ksa.unticovid.modules.main.report.presentation.model.ReportEffects
 import com.ksa.unticovid.modules.main.report.presentation.model.ReportUIModel
 import com.ksa.unticovid.modules.main.report.presentation.viewmodel.ReportViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -76,8 +76,8 @@ class ReportFragment :
 
     private fun initActions() {
         binder.layoutStateView.tvRetry.setOnClickListener { loadReports() }
-        reportAdapter.itemClickListener =  {
-            navigator.onEvent(MainNavigatorEvents.OpenReportDetailsScreen(it.covidData))
+        reportAdapter.itemClickListener = {
+            navigator.onEvent(MainNavigatorEvents.OpenReportDetailsScreen(it.id))
         }
     }
 
@@ -85,7 +85,7 @@ class ReportFragment :
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.uiState.collectLatest {
-                renderUiModel(it)
+                renderUIMode(it)
             }
         }
 
@@ -96,15 +96,15 @@ class ReportFragment :
         }
     }
 
-    private fun renderEffects(it: ReportListEffects) {
+    private fun renderEffects(it: ReportEffects) {
         when (it) {
-            is ReportListEffects.ShowReportListError -> requireActivity().showAlerterError(
+            is ReportEffects.ShowReportError -> requireActivity().showAlerterError(
                 requireActivity().getString(it.message)
             )
         }
     }
 
-    private fun renderUiModel(uiModel: ReportUIModel) {
+    private fun renderUIMode(uiModel: ReportUIModel) {
         renderStateView(uiModel)
         reportAdapter.submitList(uiModel.reports)
     }

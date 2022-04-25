@@ -1,7 +1,9 @@
 package com.ksa.unticovid.modules.core.data.source.remote
 
+import com.ksa.unticovid.modules.core.data.model.BaseResponse
 import com.ksa.unticovid.modules.faction.data.model.FactionsResponse
 import com.ksa.unticovid.modules.information.data.model.InformationResponse
+import com.ksa.unticovid.modules.main.report.data.model.ReportDetailsResponse
 import com.ksa.unticovid.modules.main.report.data.model.ReportResponse
 import com.ksa.unticovid.modules.questions.data.model.SubmitQuestionResponse
 import com.ksa.unticovid.modules.questions.data.model.SubmitQuestionsRequest
@@ -9,8 +11,9 @@ import com.ksa.unticovid.modules.user_management.signin.data.model.SignInRequest
 import com.ksa.unticovid.modules.user_management.signup.data.SignUpRequest
 import com.ksa.unticovid.modules.user_management.user.data.model.UserRequest
 import com.ksa.unticovid.modules.user_management.user.data.model.UserResponse
-import retrofit2.http.Body
-import retrofit2.http.POST
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -21,7 +24,11 @@ interface ApiService {
     suspend fun signUp(@Body request: SignUpRequest): UserResponse
 
     @POST("covid-tests")
-    suspend fun getUserReports(): ReportResponse
+    suspend fun getReports(): ReportResponse
+
+    @FormUrlEncoded
+    @POST("covid-test-details")
+    suspend fun getReportDetails(@Field("test_id") id: String): ReportDetailsResponse
 
     @POST("profile")
     suspend fun getUserData(): UserResponse
@@ -37,4 +44,11 @@ interface ApiService {
 
     @POST("covid-check-answers")
     suspend fun submitUserQuestions(@Body user: SubmitQuestionsRequest): SubmitQuestionResponse
+
+    @Multipart
+    @POST("covid-test-pcr-attach")
+    suspend fun uploadReportImage(
+        @Part("test_id") test_id: RequestBody,
+        @Part image: MultipartBody.Part,
+    ): BaseResponse
 }

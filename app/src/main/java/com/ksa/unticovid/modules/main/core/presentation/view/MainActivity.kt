@@ -13,6 +13,7 @@ import com.ksa.unticovid.base.BaseActivity
 import com.ksa.unticovid.core.extentions.setAppTitleSpanStyle
 import com.ksa.unticovid.core.navigation.NavigationCoordinator
 import com.ksa.unticovid.databinding.ActivityMainBinding
+import com.ksa.unticovid.modules.main.core.presentation.model.MainEffects
 import com.ksa.unticovid.modules.main.core.presentation.model.MainUIModel
 import com.ksa.unticovid.modules.main.core.presentation.navigation.MainNavigatorEvents
 import com.ksa.unticovid.modules.main.core.presentation.viewmodel.MainViewModel
@@ -37,11 +38,30 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
     override fun setup() {
         initToolBar()
         initObservation()
+        initActions()
+    }
+
+    private fun initActions() {
+        binder.ivSignOut.setOnClickListener {
+            viewModel.signOut()
+        }
     }
 
     private fun initObservation() {
         lifecycleScope.launchWhenStarted {
             viewModel.uiState.collectLatest { renderUIModel(it) }
+        }
+        lifecycleScope.launchWhenStarted {
+            viewModel.uiEffects.collectLatest { renderEffects(it) }
+        }
+    }
+
+    private fun renderEffects(it: MainEffects) {
+        when (it) {
+            is MainEffects.SignOut -> {
+                navigator.onEvent(MainNavigatorEvents.SignOut)
+                    .also { finish() }
+            }
         }
     }
 

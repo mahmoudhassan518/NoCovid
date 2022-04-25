@@ -1,8 +1,6 @@
 package com.ksa.unticovid.modules.main.report.presentation.model
 
-import android.os.Parcelable
 import androidx.annotation.StringRes
-import kotlinx.parcelize.Parcelize
 
 data class ReportUIModel(
     val reports: List<ReportItemUIModel> = emptyList(),
@@ -19,14 +17,14 @@ data class ReportItemUIModel(
     val covidData: ReportCovidDataUIModel
 )
 
-@Parcelize
+
 data class ReportCovidDataUIModel(
     val doctorId: String?,
     val doctorName: String?,
     val doctorMobile: String?,
     val doctorAddress: String?,
     val pcrList: List<ReportPCRUIModel>?
-) : Parcelable
+)
 
-@Parcelize
-data class ReportPCRUIModel(val id: String, val testId: String, val image: String) : Parcelable
+
+data class ReportPCRUIModel(val id: String, val testId: String, val image: String)

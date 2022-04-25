@@ -30,7 +30,7 @@ class FeaturesNavigatorImpl @Inject constructor(@ActivityContext private val con
     override fun openQuestionsScreen() =
         QuestionsActivity.startActivity(context as AppCompatActivity)
 
-    override fun openReportDetailsScreen(item: ReportCovidDataUIModel) =
-        ReportDetailsActivity.startActivity(context as AppCompatActivity, item)
+    override fun openReportDetailsScreen(id: String) =
+        ReportDetailsActivity.startActivity(context as AppCompatActivity, id)
 
 }
