@@ -100,7 +100,11 @@ class ProfileFragment :
             is ProfileEffects.ShowRemoteError -> requireActivity().showAlerterError(it.error)
             is ProfileEffects.DisplayUserData -> renderUserData(it.user)
             is ProfileEffects.ShowProfileSuccessfulAlert -> requireActivity().showAlerterSuccess(it.message)
-            is ProfileEffects.ShowToast -> Toast.makeText(requireActivity() , getString(it.text), Toast.LENGTH_SHORT).show()
+            is ProfileEffects.ShowToast -> displayToast(it)
         }
+    }
+
+    private fun displayToast(it: ProfileEffects.ShowToast) {
+        Toast.makeText(requireActivity(), getString(it.text), Toast.LENGTH_SHORT).show()
     }
 }
