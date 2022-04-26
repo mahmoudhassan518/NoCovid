@@ -79,8 +79,10 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23125" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_user_management.xml" value="0.42604166666666665" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.28306159420289856" />
+        <entry key="app/src/main/res/layout/view_profile_inputs.xml" value="0.2383612662942272" />
       </map>
     </option>
   </component>
