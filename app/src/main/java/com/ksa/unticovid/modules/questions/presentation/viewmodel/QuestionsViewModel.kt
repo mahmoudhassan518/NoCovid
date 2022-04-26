@@ -6,6 +6,7 @@ import com.ksa.unticovid.base.BaseViewModel
 import com.ksa.unticovid.modules.core.di.MainDispatcher
 import com.ksa.unticovid.modules.information.presentation.model.InformationEffects
 import com.ksa.unticovid.modules.questions.domain.interactor.SubmitQuestionsUseCase
+import com.ksa.unticovid.modules.questions.presentation.model.QuestionsEffects
 import com.ksa.unticovid.modules.questions.presentation.model.QuestionsUIModel
 import com.ksa.unticovid.modules.questions.presentation.model.mapper.toParam
 import com.ksa.unticovid.modules.questions.presentation.model.mapper.toUIModel
@@ -26,14 +27,14 @@ class QuestionsViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(QuestionsUIModel())
     val uiState: StateFlow<QuestionsUIModel> = _uiState
 
-    private val _uiEffects = MutableSharedFlow<InformationEffects>(replay = 0)
-    val uiEffects: SharedFlow<InformationEffects> = _uiEffects
+    private val _uiEffects = MutableSharedFlow<QuestionsEffects>(replay = 0)
+    val uiEffects: SharedFlow<QuestionsEffects> = _uiEffects
 
     init {
         getUserData()
     }
 
-    private fun updateEffects(effect: InformationEffects) = viewModelScope.launch {
+    private fun updateEffects(effect: QuestionsEffects) = viewModelScope.launch {
         _uiEffects.emit(effect)
     }
 
@@ -45,7 +46,6 @@ class QuestionsViewModel @Inject constructor(
             }
         }
     }
-
 
     fun submitQuestions() =
         launchBlock(onStart = { donOnStart() }, onError = { doOnError() }) {
@@ -62,7 +62,7 @@ class QuestionsViewModel @Inject constructor(
 
     private fun doOnError() {
         _uiState.value = _uiState.value.copy(isLoading = false)
-        updateEffects(InformationEffects.ShowInformationError(R.string.msgSomethingWentWrong))
+        updateEffects(QuestionsEffects.ShowQuestionsError(R.string.msgSomethingWentWrong))
     }
 
     fun updateFeverState(it: Boolean) {
@@ -87,7 +87,6 @@ class QuestionsViewModel @Inject constructor(
                 isLoading = false,
                 question = _uiState.value.question.copy(hasDiarrhea = it)
             )
-
     }
 
     fun updateCoughState(it: Boolean) {
@@ -96,8 +95,6 @@ class QuestionsViewModel @Inject constructor(
                 isLoading = false,
                 question = _uiState.value.question.copy(hasCough = it)
             )
-
-
     }
 
     private fun String.getGenderFromString(): Int? =
@@ -106,5 +103,4 @@ class QuestionsViewModel @Inject constructor(
             "1" -> R.string.female
             else -> null
         }
-
 }

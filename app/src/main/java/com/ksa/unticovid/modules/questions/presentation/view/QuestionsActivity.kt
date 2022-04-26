@@ -8,8 +8,10 @@ import androidx.lifecycle.lifecycleScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseActivity
 import com.ksa.unticovid.core.extentions.isNull
+import com.ksa.unticovid.core.extentions.showAlerterError
 import com.ksa.unticovid.databinding.ActivityQuestionsBinding
 import com.ksa.unticovid.modules.questions.presentation.model.QuestionsDataUIModel
+import com.ksa.unticovid.modules.questions.presentation.model.QuestionsEffects
 import com.ksa.unticovid.modules.questions.presentation.model.QuestionsResultUIModel
 import com.ksa.unticovid.modules.questions.presentation.model.QuestionsUIModel
 import com.ksa.unticovid.modules.questions.presentation.viewmodel.QuestionsViewModel
@@ -32,7 +34,6 @@ class QuestionsActivity :
     }
 
     private fun initViews() {
-
     }
 
     private fun initActions() {
@@ -49,7 +50,11 @@ class QuestionsActivity :
             }
         }
 
-        renderEffects()
+        lifecycleScope.launchWhenStarted {
+            viewModel.uiEffects.collectLatest {
+                renderEffects(it)
+            }
+        }
     }
 
     private fun renderUIModel(uiModel: QuestionsUIModel) = with(uiModel) {
@@ -102,10 +107,10 @@ class QuestionsActivity :
         }
     }
 
-    private fun renderEffects() {
-
-
-    }
+    private fun renderEffects(questionsEffects: QuestionsEffects) =
+        when (questionsEffects) {
+            is QuestionsEffects.ShowQuestionsError -> showAlerterError(getString(questionsEffects.message))
+        }
 
     companion object {
 
