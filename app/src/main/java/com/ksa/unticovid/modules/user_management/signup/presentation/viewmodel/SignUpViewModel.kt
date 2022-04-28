@@ -42,13 +42,14 @@ class SignUpViewModel @Inject constructor(
             onStart = { onRequestLoginLoading() },
             onError = { it.onRequestSignUpError() }
         ) {
-            signUpUseCase.invoke(param.copy(gender = uiState.value.currentGender.value)).collectLatest { user ->
-                _uiState.value = _uiState.value.copy(
-                    isLoading = false,
-                    user = user
-                )
-                onRequestSignUpSuccess()
-            }
+            signUpUseCase.invoke(param.copy(gender = uiState.value.currentGender.value))
+                .collectLatest { user ->
+                    _uiState.value = _uiState.value.copy(
+                        isLoading = false,
+                        user = user
+                    )
+                    onRequestSignUpSuccess()
+                }
         }
 
     private fun onRequestLoginLoading() {
@@ -84,5 +85,4 @@ class SignUpViewModel @Inject constructor(
         viewModelScope.launch {
             _uiEffects.emit(SignUpEffects.ShowRemoteError(message!!))
         }
-
 }

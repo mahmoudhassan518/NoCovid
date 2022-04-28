@@ -13,7 +13,6 @@ import com.ksa.unticovid.modules.user_management.user.domain.interactor.GetLocal
 import com.ksa.unticovid.modules.user_management.user.domain.interactor.SaveLocalUserUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class SignUpUseCase @Inject constructor(
@@ -37,14 +36,14 @@ class SignUpUseCase @Inject constructor(
         }
 
     private fun SignUpParam.hasEmptyFields() =
-        identity.isEmpty() ||
-                name.isEmpty() ||
-                email.isEmpty() ||
-                password.trim().isEmpty() ||
-                gender.isEmpty() ||
-                age.isEmpty() ||
-                address.isEmpty() ||
-                mobile.isEmpty()
+        identity.trim().isEmpty() ||
+            name.trim().isEmpty() ||
+            email.trim().isEmpty() ||
+            password.trim().isEmpty() ||
+            gender.trim().isEmpty() ||
+            age.trim().isEmpty() ||
+            address.trim().isEmpty() ||
+            mobile.trim().isEmpty()
 
     private fun signIn(param: SignUpParam) =
         repository.signUp(param).flatMapLatest { newUserEntity ->

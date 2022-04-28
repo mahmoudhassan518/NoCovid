@@ -12,7 +12,7 @@
     <string name="newUserMessage">Don\'t have an account? Register now</string>
     <string name="registerNow">Register now</string>
     <string name="name">Name</string>
-    <string name="phoneNumber">Phone Number</string>
+    <string name="phoneNumber">Mobile</string>
     <string name="confirm_Password">Confirm Password</string>
     <string name="signUpWelcomeMessage">Get Started!</string>
     <string name="signUpMainMessage">Please complete the fields</string>
@@ -31,9 +31,12 @@
     <string name="profile">Profile</string>
     <string name="label_report_header">Covid-19 Test Requests</string>
 
+    <string name="familyErrorMessage">error happen while fetching family members!</string>
+    <string name="emptyFamilyMessage">No family members was added.</string>
+    <string name="msgMemberFamilyAddedSuccessfully">Family member added successfully</string>
     <string name="reportErrorMessage">error happen while fetching reports!</string>
     <string name="reportDetailsErrorMessage">error happen while fetching report details!</string>
-    <string name="emptyReportMessage">No Reports Yet.</string>
+    <string name="emptyReportMessage">No reports yet.</string>
     <string name="emptyListMessage">empty list!</string>
     <string name="profileWelcomeMessage">Hello %1$s</string>
     <string name="profileWelcomeHelloLabel">Hello</string>
@@ -79,4 +82,5 @@
     <string name="gender">Gender</string>
     <string name="noChangesFoundMsg">No changes found!</string>
     <string name="callDoctorMsg">We suggest you this doctor to contact with</string>
+    <string name="relation">Relation</string>
 </resources>

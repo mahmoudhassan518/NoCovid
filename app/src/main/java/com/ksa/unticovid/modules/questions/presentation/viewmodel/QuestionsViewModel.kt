@@ -3,6 +3,7 @@ package com.ksa.unticovid.modules.questions.presentation.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseViewModel
+import com.ksa.unticovid.core.extentions.getGenderFromString
 import com.ksa.unticovid.modules.core.di.MainDispatcher
 import com.ksa.unticovid.modules.information.presentation.model.InformationEffects
 import com.ksa.unticovid.modules.questions.domain.interactor.SubmitQuestionsUseCase
@@ -97,10 +98,5 @@ class QuestionsViewModel @Inject constructor(
             )
     }
 
-    private fun String.getGenderFromString(): Int? =
-        when (this) {
-            "0" -> R.string.male
-            "1" -> R.string.female
-            else -> null
-        }
+
 }

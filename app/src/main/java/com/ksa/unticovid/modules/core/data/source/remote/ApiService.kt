@@ -2,6 +2,8 @@ package com.ksa.unticovid.modules.core.data.source.remote
 
 import com.ksa.unticovid.modules.core.data.model.BaseResponse
 import com.ksa.unticovid.modules.faction.data.model.FactionsResponse
+import com.ksa.unticovid.modules.family.data.model.FamilyResponse
+import com.ksa.unticovid.modules.family.data.model.SubmitFamilyMemberRequest
 import com.ksa.unticovid.modules.information.data.model.InformationResponse
 import com.ksa.unticovid.modules.main.report.data.model.ReportDetailsResponse
 import com.ksa.unticovid.modules.main.report.data.model.ReportResponse
@@ -13,7 +15,12 @@ import com.ksa.unticovid.modules.user_management.user.data.model.UserRequest
 import com.ksa.unticovid.modules.user_management.user.data.model.UserResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Multipart
+import retrofit2.http.POST
+import retrofit2.http.Part
+import retrofit2.http.Field
 
 interface ApiService {
 
@@ -51,4 +58,10 @@ interface ApiService {
         @Part("test_id") test_id: RequestBody,
         @Part image: MultipartBody.Part,
     ): BaseResponse
+
+    @POST("")
+    fun submitFamilyMember(memberRequest: SubmitFamilyMemberRequest): BaseResponse
+
+    @POST("")
+    fun getFamilyMembers(): FamilyResponse
 }
