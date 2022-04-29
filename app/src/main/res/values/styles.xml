@@ -8,7 +8,7 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingStart">16dp</item>
         <item name="android:paddingEnd">16dp</item>
-        <item name="android:layout_width">418dp</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dimen_field_height</item>
         <item name="android:textColorHint">@color/colorHint</item>
         <item name="fontFamily">@font/roboto_regular</item>
@@ -45,6 +45,14 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:lineSpacingExtra">6dp</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
+
+    </style>
+
+    <style name="StylePageSubTitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:lineSpacingExtra">1dp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
 
     </style>
 

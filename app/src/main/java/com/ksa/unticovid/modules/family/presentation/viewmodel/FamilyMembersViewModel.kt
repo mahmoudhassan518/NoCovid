@@ -6,7 +6,8 @@ import com.ksa.unticovid.base.BaseViewModel
 import com.ksa.unticovid.core.utils.UIError
 import com.ksa.unticovid.modules.core.di.MainDispatcher
 import com.ksa.unticovid.modules.family.domain.param.GetFamilyMembersUseCase
-import com.ksa.unticovid.modules.family.presentation.model.FamilyEffects
+import com.ksa.unticovid.modules.family.presentation.model.FamilyMemberDataUIModel
+import com.ksa.unticovid.modules.family.presentation.model.FamilyMembersEffects
 import com.ksa.unticovid.modules.family.presentation.model.FamilyMembersUIModel
 import com.ksa.unticovid.modules.family.presentation.model.mapper.toUIModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,23 +24,34 @@ class FamilyMembersViewModel @Inject constructor(
     BaseViewModel(mainDispatcher) {
 
     private val _uiState = MutableStateFlow(FamilyMembersUIModel())
-    val membersUiState: StateFlow<FamilyMembersUIModel> = _uiState
+    val uiState: StateFlow<FamilyMembersUIModel> = _uiState
 
-    private val _uiEffects = MutableSharedFlow<FamilyEffects>(replay = 0)
-    val uiEffects: SharedFlow<FamilyEffects> = _uiEffects
+    private val _uiEffects = MutableSharedFlow<FamilyMembersEffects>(replay = 0)
+    val uiEffects: SharedFlow<FamilyMembersEffects> = _uiEffects
 
-    fun getFamilyMembers() = launchBlock(onStart = { donOnStart() }, onError = { showError() }) {
-        getFamilyMembersUseCase(Unit).collectLatest { reports ->
-            _uiState.value =
-                _uiState.value.copy(
-                    isLoading = false,
-                    emptyMessage = buildEmptyMessage(reports.isNullOrEmpty()),
-                    family = reports.map { it.toUIModel() })
-        }
+    fun addFamilyMemberToList(member: FamilyMemberDataUIModel) {
+        uiState.value.family.add(member)
+        _uiState.value =
+            _uiState.value.copy(
+                emptyMessage = null
+            )
     }
 
+
+    fun getFamilyMembers(id: String) =
+        launchBlock(onStart = { donOnStart() }, onError = { showError() }) {
+            getFamilyMembersUseCase(id).collectLatest { data ->
+                _uiState.value =
+                    _uiState.value.copy(
+                        isLoading = false,
+                        emptyMessage = buildEmptyMessage(data.isNullOrEmpty()),
+                        family = data.map { it.toUIModel() }.toMutableList()
+                    )
+            }
+        }
+
     private fun buildEmptyMessage(isEmpty: Boolean) =
-        if (isEmpty) R.string.emptyReportMessage else null
+        if (isEmpty) R.string.emptyFamilyMessage else null
 
     private fun donOnStart() {
         _uiState.value =
@@ -50,12 +62,12 @@ class FamilyMembersViewModel @Inject constructor(
         _uiState.value =
             _uiState.value.copy(
                 isLoading = false,
-                errorMessage = if (_uiState.value.family.isNullOrEmpty()) R.string.reportErrorMessage else null
+                errorMessage = if (_uiState.value.family.isNullOrEmpty()) R.string.familyErrorMessage else null
             )
 
         if (!_uiState.value.family.isNullOrEmpty())
             viewModelScope.launch {
-                _uiEffects.emit(FamilyEffects.ShowError(UIError.getUnexpectedError().msg))
+                _uiEffects.emit(FamilyMembersEffects.ShowError(UIError.getUnexpectedError().msg))
             }
     }
 }

@@ -8,5 +8,6 @@ data class AddFamilyMemberParam(
     val mobile: String,
     val name: String,
     val relation: String,
+    val reportId: String,
 
 )

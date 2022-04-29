@@ -7,26 +7,24 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ksa.unticovid.core.utils.Consumer
 import com.ksa.unticovid.databinding.ItemFamilyMemberBinding
-import com.ksa.unticovid.modules.family.presentation.model.FamilyDataUIModel
+import com.ksa.unticovid.modules.family.presentation.model.FamilyMemberDataUIModel
 import javax.inject.Inject
 
 class FamilyAdapter @Inject constructor() :
-    ListAdapter<FamilyDataUIModel, FamilyAdapter.ViewHolder>(
+    ListAdapter<FamilyMemberDataUIModel, FamilyAdapter.ViewHolder>(
         AdapterDiffUtil
     ) {
 
-    lateinit var itemClickListener: Consumer<FamilyDataUIModel>
-
     private object AdapterDiffUtil :
-        DiffUtil.ItemCallback<FamilyDataUIModel>() {
+        DiffUtil.ItemCallback<FamilyMemberDataUIModel>() {
         override fun areItemsTheSame(
-            oldItem: FamilyDataUIModel,
-            newItem: FamilyDataUIModel
+            oldItem: FamilyMemberDataUIModel,
+            newItem: FamilyMemberDataUIModel
         ) = oldItem.id == newItem.id
 
         override fun areContentsTheSame(
-            oldItem: FamilyDataUIModel,
-            newItem: FamilyDataUIModel
+            oldItem: FamilyMemberDataUIModel,
+            newItem: FamilyMemberDataUIModel
         ) = oldItem == newItem
     }
 
@@ -44,27 +42,26 @@ class FamilyAdapter @Inject constructor() :
         holder.bindViews(getItem(position))
     }
 
+    fun submitData(family: MutableList<FamilyMemberDataUIModel>) {
+        submitList(family)
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(private val bind: ItemFamilyMemberBinding) :
         RecyclerView.ViewHolder(bind.root) {
-        fun bindViews(item: FamilyDataUIModel) {
+        fun bindViews(item: FamilyMemberDataUIModel) {
             bindLayout(item)
         }
 
-        private fun bindLayout(item: FamilyDataUIModel) {
+        private fun bindLayout(item: FamilyMemberDataUIModel) {
             bind.apply {
                 with(item) {
-                    tvName.text = item.name
-                    tvAge.text = item.age
-                    tvMobile.text = item.mobile
-                    tvNationalId.text = item.nationalIdentity
-                    tvRelation.text = item.relation
-                    tvGender.text = bind.root.context.getString(item.gender)
-
-                    root.setOnClickListener {
-                        itemClickListener(
-                            getItem(adapterPosition)
-                        )
-                    }
+                    tvName.text = name
+                    tvAge.text = age
+                    tvMobile.text = mobile
+                    tvNationalId.text = nationalIdentity
+                    tvRelation.text = relation
+                    tvGender.text = bind.root.context.getString(gender)
                 }
             }
         }

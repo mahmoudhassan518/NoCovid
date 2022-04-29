@@ -11,5 +11,6 @@ data class UserEntity(
     val address: String?,
     val age: String?,
     val gender: String,
+    val covidStatus: String?,
 
 )

@@ -93,18 +93,18 @@ class QuestionsActivity :
     }
 
     private fun QuestionsDataUIModel.renderQuestionsData() {
-        binder.viewCough.init(getString(R.string.coughQuestion), hasCough) {
+        binder.viewCough.init(getString(R.string.coughQuestion), hasCough, onItemSelect = {
             viewModel.updateCoughState(it)
-        }
-        binder.viewDiarrhea.init(getString(R.string.diarrheaQuestion), hasDiarrhea) {
+        })
+        binder.viewDiarrhea.init(getString(R.string.diarrheaQuestion), hasDiarrhea, onItemSelect = {
             viewModel.updateDiarrheaState(it)
-        }
-        binder.viewDyspnea.init(getString(R.string.dyspneaQuestion), hasDyspnea) {
+        })
+        binder.viewDyspnea.init(getString(R.string.dyspneaQuestion), hasDyspnea, onItemSelect = {
             viewModel.updateDyspneaState(it)
-        }
-        binder.viewFever.init(getString(R.string.feverQuestion), hasFever) {
+        })
+        binder.viewFever.init(getString(R.string.feverQuestion), hasFever, onItemSelect = {
             viewModel.updateFeverState(it)
-        }
+        })
     }
 
     private fun renderEffects(questionsEffects: QuestionsEffects) =

@@ -17,12 +17,6 @@
         android:theme="@style/Theme.UntiCovid"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".modules.main.report.presentation.view.ReportDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".modules.questions.presentation.view.QuestionsActivity"
-            android:exported="false" />
-        <activity
             android:name=".modules.splash.presentaion.view.SplashActivity"
             android:exported="true"
             android:screenOrientation="behind"
@@ -34,18 +28,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".modules.upload.presentation.view.AnalyticsActivity"
-            android:exported="false"
-            android:screenOrientation="behind" />
-        <activity
-            android:name=".modules.faction.presentation.view.FactionsActivity"
-            android:exported="false"
-            android:screenOrientation="behind" />
-        <activity
-            android:name=".modules.information.presentation.view.InformationActivity"
-            android:exported="false"
-            android:screenOrientation="behind" />
-        <activity
             android:name=".modules.user_management.core.presentation.view.UserManagementActivity"
             android:exported="false"
             android:screenOrientation="behind"
@@ -56,6 +38,30 @@
             android:exported="false"
             android:screenOrientation="behind"
             android:theme="@style/Theme.UntiCovid.ActionBarStatusBarTransparent" />
+        <activity
+            android:name=".modules.questions.presentation.view.QuestionsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".modules.faction.presentation.view.FactionsActivity"
+            android:exported="false"
+            android:screenOrientation="behind" />
+        <activity
+            android:name=".modules.information.presentation.view.InformationActivity"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
+        <activity
+            android:name=".modules.main.report.presentation.view.ReportDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".modules.family.presentation.view.FamilyMembersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".modules.family.presentation.view.AddFamilyMemberActivity"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
 
         <provider
             android:name="androidx.core.content.FileProvider"

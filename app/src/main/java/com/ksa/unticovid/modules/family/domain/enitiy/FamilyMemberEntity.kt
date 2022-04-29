@@ -1,6 +1,6 @@
 package com.ksa.unticovid.modules.family.domain.enitiy
 
-data class FamilyEntity(
+data class FamilyMemberEntity(
     var id: Int,
     var nationalIdentity: String,
     var age: String,

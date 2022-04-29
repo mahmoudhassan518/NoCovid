@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:background="@color/colorLightPaleGrey">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/fields_container_LinearLayoutCompat"
@@ -34,6 +36,26 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="@color/white" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_covid_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_nationalId"
+                style="@style/ProfileTextView"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_verified_user"
+                android:drawablePadding="8dp"
+                android:hint="@string/nationalId"
+                android:inputType="text"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:textAlignment="viewStart" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_name"

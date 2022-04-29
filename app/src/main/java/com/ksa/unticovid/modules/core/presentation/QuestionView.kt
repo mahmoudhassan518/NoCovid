@@ -25,43 +25,46 @@ class QuestionView @JvmOverloads constructor(
 
     fun init(
         question: String,
-        isSelected: Boolean,
-        onItemSelect: Consumer<Boolean>
+        isLeftSelected: Boolean,
+        leftText: String? = null,
+        rightText: String? = null,
+        onItemSelect: Consumer<Boolean>,
     ) {
         binding?.tvQuestion?.text = question
-        binding?.layoutGenderView?.tvMale?.text = context.getString(R.string.no)
-        binding?.layoutGenderView?.tvFemale?.text = context.getString(R.string.yes)
 
-        binding?.layoutGenderView?.tvMale?.setOnClickListener {
+        binding?.layoutGenderView?.tvLeft?.text = leftText ?: context.getString(R.string.no)
+        binding?.layoutGenderView?.tvRight?.text = rightText ?: context.getString(R.string.yes)
+
+        binding?.layoutGenderView?.tvLeft?.setOnClickListener {
             onItemSelect(false)
         }
 
-        binding?.layoutGenderView?.tvFemale?.setOnClickListener {
+        binding?.layoutGenderView?.tvRight?.setOnClickListener {
             onItemSelect(true)
         }
-        change(isSelected)
+        change(isLeftSelected)
 
     }
 
-    private fun change(isSelected: Boolean) {
-        binding?.layoutGenderView?.tvMale?.setBackgroundResource(
-            if (isSelected) R.drawable.bg_white_corners_5_dp else R.drawable.bg_enabled_button
+    private fun change(isLeftSelected: Boolean) {
+        binding?.layoutGenderView?.tvLeft?.setBackgroundResource(
+            if (isLeftSelected) R.drawable.bg_white_corners_5_dp else R.drawable.bg_enabled_button
         )
-        binding?.layoutGenderView?.tvMale?.setTextColor(
+        binding?.layoutGenderView?.tvLeft?.setTextColor(
             ContextCompat.getColor(
                 context,
-                if (isSelected) R.color.black else R.color.white
+                if (isLeftSelected) R.color.black else R.color.white
             )
         )
 
-        binding?.layoutGenderView?.tvFemale?.setBackgroundResource(
-            if (isSelected) R.drawable.bg_enabled_button else R.drawable.bg_white_corners_5_dp
+        binding?.layoutGenderView?.tvRight?.setBackgroundResource(
+            if (isLeftSelected) R.drawable.bg_enabled_button else R.drawable.bg_white_corners_5_dp
 
         )
-        binding?.layoutGenderView?.tvFemale?.setTextColor(
+        binding?.layoutGenderView?.tvRight?.setTextColor(
             ContextCompat.getColor(
                 context,
-                if (isSelected) R.color.white else R.color.black
+                if (isLeftSelected) R.color.white else R.color.black
             )
         )
     }

@@ -76,8 +76,11 @@ class ReportFragment :
 
     private fun initActions() {
         binder.layoutStateView.tvRetry.setOnClickListener { loadReports() }
-        reportAdapter.itemClickListener = {
+        reportAdapter.showDetailsClickListener = {
             navigator.onEvent(MainNavigatorEvents.OpenReportDetailsScreen(it.id))
+        }
+        reportAdapter.showFamilyClickListener = {
+            navigator.onEvent(MainNavigatorEvents.OpenFamilyMembersScreen(it.id))
         }
     }
 

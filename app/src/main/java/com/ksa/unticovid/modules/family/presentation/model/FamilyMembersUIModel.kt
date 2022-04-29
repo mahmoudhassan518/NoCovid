@@ -1,13 +1,17 @@
 package com.ksa.unticovid.modules.family.presentation.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class FamilyMembersUIModel(
-    val family: List<FamilyDataUIModel> = emptyList(),
+    val family: MutableList<FamilyMemberDataUIModel> = mutableListOf(),
     val isLoading: Boolean = false,
     val errorMessage: Int? = null,
     val emptyMessage: Int? = null
 )
 
-data class FamilyDataUIModel(
+@Parcelize
+data class FamilyMemberDataUIModel(
     var id: Int,
     var nationalIdentity: String,
     var age: String,
@@ -15,4 +19,4 @@ data class FamilyDataUIModel(
     var mobile: String,
     var name: String,
     var relation: String,
-)
+): Parcelable

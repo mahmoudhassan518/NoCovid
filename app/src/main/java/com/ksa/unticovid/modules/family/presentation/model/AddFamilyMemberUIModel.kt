@@ -5,8 +5,10 @@ import com.ksa.unticovid.modules.user_management.core.presentation.model.mapper.
 import com.ksa.unticovid.modules.user_management.user.domain.entity.GenderType
 
 data class AddFamilyMemberUIModel(
-    val genderSettings: GenderSettings = GenderType.MALE.genderUISettings(),
+
     val currentGender: GenderType = GenderType.MALE,
+    val genderSettings: GenderSettings = GenderType.MALE.genderUISettings(),
+    val currentFamilyMemberData: FamilyMemberDataUIModel? = null,
     val isLoading: Boolean = false,
     val errorMessage: Int? = null,
 )

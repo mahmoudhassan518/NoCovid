@@ -16,6 +16,7 @@ fun UserResponse.toEntity() = UserEntity(
     gender = data.gender,
     age = data.age,
     address = data.address,
+    covidStatus = data.covidStatus
 )
 
 fun UserParam.toRequest() = UserRequest(

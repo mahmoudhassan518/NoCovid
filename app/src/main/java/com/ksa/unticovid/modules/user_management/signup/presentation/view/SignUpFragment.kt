@@ -14,8 +14,6 @@ import com.ksa.unticovid.core.navigation.NavigationCoordinator
 import com.ksa.unticovid.databinding.FragmentSignUpBinding
 import com.ksa.unticovid.modules.user_management.core.presentation.model.GenderSettings
 import com.ksa.unticovid.modules.user_management.core.presentation.navigation.UserManagementNavigatorEvents
-import com.ksa.unticovid.modules.user_management.signin.presentation.model.SignInEffects
-import com.ksa.unticovid.modules.user_management.signin.presentation.model.SignInUIModel
 import com.ksa.unticovid.modules.user_management.signup.domain.entity.param.SignUpParam
 import com.ksa.unticovid.modules.user_management.signup.presentation.model.SignUpEffects
 import com.ksa.unticovid.modules.user_management.signup.presentation.model.SignUpUIModel
@@ -50,10 +48,10 @@ class SignUpFragment :
                 binder.buildSignUpParam()
             )
         }
-        binder.layoutGenderView.tvMale.setOnClickListener {
+        binder.layoutGenderView.tvLeft.setOnClickListener {
             viewModel.updateCurrentGender(GenderType.MALE)
         }
-        binder.layoutGenderView.tvFemale.setOnClickListener {
+        binder.layoutGenderView.tvRight.setOnClickListener {
             viewModel.updateCurrentGender(GenderType.FEMALE)
         }
     }
@@ -93,21 +91,21 @@ class SignUpFragment :
     }
 
     private fun GenderSettings.renderGenderSettings() = with(binder) {
-        layoutGenderView.tvMale.setBackgroundDrawable(
+        layoutGenderView.tvLeft.setBackgroundDrawable(
             ContextCompat.getDrawable(
                 requireActivity(),
                 maleBackground
             )
         )
-        layoutGenderView.tvMale.setTextColor(ContextCompat.getColor(requireActivity(), maleColor))
+        layoutGenderView.tvLeft.setTextColor(ContextCompat.getColor(requireActivity(), maleColor))
 
-        layoutGenderView.tvFemale.setBackgroundDrawable(
+        layoutGenderView.tvRight.setBackgroundDrawable(
             ContextCompat.getDrawable(
                 requireActivity(),
                 femaleBackground
             )
         )
-        layoutGenderView.tvFemale.setTextColor(
+        layoutGenderView.tvRight.setTextColor(
             ContextCompat.getColor(
                 requireActivity(),
                 femaleColor

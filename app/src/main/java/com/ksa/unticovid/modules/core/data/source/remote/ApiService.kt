@@ -3,7 +3,8 @@ package com.ksa.unticovid.modules.core.data.source.remote
 import com.ksa.unticovid.modules.core.data.model.BaseResponse
 import com.ksa.unticovid.modules.faction.data.model.FactionsResponse
 import com.ksa.unticovid.modules.family.data.model.FamilyResponse
-import com.ksa.unticovid.modules.family.data.model.SubmitFamilyMemberRequest
+import com.ksa.unticovid.modules.family.data.model.AddFamilyMemberRequest
+import com.ksa.unticovid.modules.family.data.model.AddFamilyMemberResponse
 import com.ksa.unticovid.modules.information.data.model.InformationResponse
 import com.ksa.unticovid.modules.main.report.data.model.ReportDetailsResponse
 import com.ksa.unticovid.modules.main.report.data.model.ReportResponse
@@ -59,9 +60,10 @@ interface ApiService {
         @Part image: MultipartBody.Part,
     ): BaseResponse
 
-    @POST("")
-    fun submitFamilyMember(memberRequest: SubmitFamilyMemberRequest): BaseResponse
+    @POST("add-family-member")
+    suspend fun addFamilyMember(@Body memberRequest: AddFamilyMemberRequest): AddFamilyMemberResponse
 
-    @POST("")
-    fun getFamilyMembers(): FamilyResponse
+    @FormUrlEncoded
+    @POST("family-members")
+    suspend fun getFamilyMembers(@Field("test_id") id: String): FamilyResponse
 }

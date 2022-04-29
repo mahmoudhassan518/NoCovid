@@ -1,11 +1,10 @@
 package com.ksa.unticovid.modules.family.presentation.model.mapper
 
 import com.ksa.unticovid.core.extentions.getGenderFromString
-import com.ksa.unticovid.modules.family.domain.enitiy.FamilyEntity
-import com.ksa.unticovid.modules.family.presentation.model.FamilyDataUIModel
-import com.ksa.unticovid.modules.user_management.user.domain.entity.GenderType
+import com.ksa.unticovid.modules.family.domain.enitiy.FamilyMemberEntity
+import com.ksa.unticovid.modules.family.presentation.model.FamilyMemberDataUIModel
 
-fun FamilyEntity.toUIModel() = FamilyDataUIModel(
+fun FamilyMemberEntity.toUIModel() = FamilyMemberDataUIModel(
     id = id,
     nationalIdentity = nationalIdentity,
     age = age,

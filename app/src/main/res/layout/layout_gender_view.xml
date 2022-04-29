@@ -8,7 +8,7 @@
         android:background="@drawable/bg_white_corners_5_dp">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_male"
+            android:id="@+id/tv_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_enabled_button"
@@ -20,7 +20,7 @@
             android:fontFamily="@font/roboto_regular"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_female"
+            android:id="@+id/tv_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"

@@ -16,7 +16,8 @@ class ReportAdapter @Inject constructor() :
         AdapterDiffUtil
     ) {
 
-    lateinit var itemClickListener: Consumer<ReportItemUIModel>
+    lateinit var showDetailsClickListener: Consumer<ReportItemUIModel>
+    lateinit var showFamilyClickListener: Consumer<ReportItemUIModel>
 
     private object AdapterDiffUtil :
         DiffUtil.ItemCallback<ReportItemUIModel>() {
@@ -55,11 +56,17 @@ class ReportAdapter @Inject constructor() :
             bind.apply {
                 with(item) {
                     tvDate.text = date
-                    ivImage.isVisible = hasCovid
+                    llDetails.isVisible = hasCovid
                     tvResult.text = bind.root.context.getString(resultMessage)
-                    root.setOnClickListener {
+                    tvDetails.setOnClickListener {
                         if (hasCovid)
-                            itemClickListener(
+                            showDetailsClickListener(
+                                getItem(adapterPosition)
+                            )
+                    }
+                    tvFamily.setOnClickListener {
+                        if (hasCovid)
+                            showFamilyClickListener(
                                 getItem(adapterPosition)
                             )
                     }

@@ -6,5 +6,6 @@ sealed class MainNavigatorEvents {
     object OpenFactionScreen : MainNavigatorEvents()
     object OpenQuestionsScreen : MainNavigatorEvents()
     data class OpenReportDetailsScreen(val id: String) : MainNavigatorEvents()
+    data class OpenFamilyMembersScreen(val id: String) : MainNavigatorEvents()
     object SignOut : MainNavigatorEvents()
 }

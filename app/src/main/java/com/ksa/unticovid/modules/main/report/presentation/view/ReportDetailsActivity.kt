@@ -52,7 +52,7 @@ class ReportDetailsActivity :
     private fun initActions() {
         binder.layoutStateView.tvRetry.setOnClickListener { getReportDetails() }
         binder.btnUploadImage.setOnClickListener { showUploadDialog() }
-        binder.actionBar.backImageButton.setOnClickListener { finish() }
+        binder.actionBar.backImageButton.setOnClickListener { onBackPressed() }
         pcrAdapter.itemClickListener = {
             viewModel.updateCurrentReportPCR(it)
         }

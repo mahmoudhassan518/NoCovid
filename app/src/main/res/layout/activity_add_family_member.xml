@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".modules.user_management.signup.presentation.view.SignUpFragment">
+
+        <include
+            android:id="@+id/action_bar"
+            layout="@layout/action_bar_back_light"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/StylePageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/labelAddNewFamilyMember"
+            android:textAlignment="viewStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_bar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/fields_container_LinearLayoutCompat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_light_grey_button"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <include
+                        android:id="@+id/layout_gender_view"
+                        layout="@layout/layout_gender_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_nationalId"
+                        style="@style/ProfileTextView"
+                        android:layout_marginTop="8dp"
+                        android:drawableStart="@drawable/ic_verified_user"
+                        android:drawablePadding="8dp"
+                        android:hint="@string/nationalId"
+                        android:inputType="number"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textAlignment="viewStart" />
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_name"
+                        style="@style/ProfileTextView"
+                        android:layout_marginTop="8dp"
+                        android:drawableStart="@drawable/ic_user"
+                        android:drawablePadding="8dp"
+                        android:hint="@string/name"
+                        android:inputType="text"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:textAlignment="viewStart" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_phone"
+                        style="@style/ProfileTextView"
+                        android:layout_marginTop="8dp"
+                        android:drawableStart="@drawable/ic_phone"
+                        android:drawablePadding="8dp"
+                        android:hint="@string/phoneNumber"
+                        android:inputType="phone"
+                        android:maxLength="15"
+                        android:maxLines="1"
+                        android:textAlignment="viewStart" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_relation"
+                        style="@style/ProfileTextView"
+                        android:layout_marginTop="8dp"
+                        android:drawableStart="@drawable/ic_relative"
+                        android:drawablePadding="8dp"
+                        android:hint="@string/relationType"
+                        android:inputType="text"
+                        android:maxLength="50"
+                        android:maxLines="1"
+                        android:textAlignment="viewStart" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_age"
+                        style="@style/ProfileTextView"
+                        android:layout_marginTop="8dp"
+                        android:drawableStart="@drawable/ic_age"
+                        android:drawablePadding="8dp"
+                        android:hint="@string/age"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        android:maxLines="1"
+                        android:textAlignment="viewStart" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <FrameLayout
+                    android:id="@+id/cl_bottom"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fields_container_LinearLayoutCompat">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/btn_submit"
+                        style="@style/PrimaryButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_enabled_button"
+                        android:text="@string/labelAddNewFamilyMember"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </FrameLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <include
+            android:id="@+id/layout_state_view"
+            layout="@layout/layout_state_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_bar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

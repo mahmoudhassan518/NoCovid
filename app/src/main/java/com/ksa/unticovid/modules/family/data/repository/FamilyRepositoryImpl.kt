@@ -5,7 +5,7 @@ import com.ksa.unticovid.modules.core.di.IODispatcher
 import com.ksa.unticovid.modules.family.data.model.mapper.toEntity
 import com.ksa.unticovid.modules.family.data.model.mapper.toRequest
 import com.ksa.unticovid.modules.family.data.source.FamilyRemoteSource
-import com.ksa.unticovid.modules.family.domain.enitiy.FamilyEntity
+import com.ksa.unticovid.modules.family.domain.enitiy.FamilyMemberEntity
 import com.ksa.unticovid.modules.family.domain.enitiy.AddFamilyMemberParam
 import com.ksa.unticovid.modules.family.domain.repository.FamilyRepository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -16,11 +16,12 @@ class FamilyRepositoryImpl @Inject constructor(
     @IODispatcher private val dispatcher: CoroutineDispatcher,
     private val source: FamilyRemoteSource
 ) : FamilyRepository, BaseRepository(dispatcher) {
-    override fun addFamilyMember(param: AddFamilyMemberParam): Flow<Unit> = requestHandler {
-        source.submitFamilyMember(param.toRequest())
-    }
+    override fun addFamilyMember(param: AddFamilyMemberParam): Flow<FamilyMemberEntity> =
+        requestHandler {
+            source.addFamilyMember(param.toRequest()).data.toEntity()
+        }
 
-    override fun getFamilyMembers(): Flow<List<FamilyEntity>> = requestHandler {
-        source.getFamilyMembers().date.map { it.toEntity() }
+    override fun getFamilyMembers(param: String): Flow<List<FamilyMemberEntity>> = requestHandler {
+        source.getFamilyMembers(param).data.map { it.toEntity() }
     }
 }

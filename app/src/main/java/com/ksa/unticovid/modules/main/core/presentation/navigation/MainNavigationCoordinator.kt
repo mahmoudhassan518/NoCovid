@@ -27,6 +27,8 @@ class MainNavigationCoordinator @Inject constructor(
                 featuresNavigator.openQuestionsScreen()
             is MainNavigatorEvents.OpenReportDetailsScreen ->
                 featuresNavigator.openReportDetailsScreen(event.id)
+            is MainNavigatorEvents.OpenFamilyMembersScreen ->
+                featuresNavigator.openFamilyMembersScreen(event.id)
             is MainNavigatorEvents.SignOut ->
                 featuresNavigator.openUserManagementScreen()
         }

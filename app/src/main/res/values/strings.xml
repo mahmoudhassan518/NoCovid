@@ -32,13 +32,14 @@
     <string name="label_report_header">Covid-19 Test Requests</string>
 
     <string name="familyErrorMessage">error happen while fetching family members!</string>
-    <string name="emptyFamilyMessage">No family members was added.</string>
-    <string name="msgMemberFamilyAddedSuccessfully">Family member added successfully</string>
+    <string name="emptyFamilyMessage">No contacts were added.</string>
+    <string name="msgMemberFamilyAddedSuccessfully">%1$s added successfully</string>
     <string name="reportErrorMessage">error happen while fetching reports!</string>
     <string name="reportDetailsErrorMessage">error happen while fetching report details!</string>
     <string name="emptyReportMessage">No reports yet.</string>
     <string name="emptyListMessage">empty list!</string>
     <string name="profileWelcomeMessage">Hello %1$s</string>
+    <string name="profileCovidStatus">Covid-19 status is %1$s</string>
     <string name="profileWelcomeHelloLabel">Hello</string>
     <string name="profileMessage">Keep Your life healthy</string>
     <string name="save">Save</string>
@@ -83,4 +84,11 @@
     <string name="noChangesFoundMsg">No changes found!</string>
     <string name="callDoctorMsg">We suggest you this doctor to contact with</string>
     <string name="relation">Relation</string>
+    <string name="label_family_members_header">Family Members</string>
+    <string name="labelAddNewFamilyMember">Add new Person</string>
+    <string name="relationType">Relation (Son, Brother, Mother…)</string>
+    <string name="labelSelectFamilyMemberGender">Select Family Member Gender</string>
+    <string name="labelShowDetails">Show Details</string>
+    <string name="labelDirectContacts">Direct Contacts</string>
+    <string name="label_family_members_description">Direct contacts are persons who have been in direct contact with the patient in house, school or work during a period of four days prior to the onset of symptoms and up to seven days after its onset.</string>
 </resources>

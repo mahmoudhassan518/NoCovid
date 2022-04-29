@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.ksa.unticovid.R
 import com.ksa.unticovid.base.BaseFragment
+import com.ksa.unticovid.core.extentions.buildProfileCovidStatusString
 import com.ksa.unticovid.core.extentions.showAlerterError
 import com.ksa.unticovid.core.extentions.showAlerterSuccess
 import com.ksa.unticovid.databinding.FragmentProfileBinding
@@ -76,13 +77,20 @@ class ProfileFragment :
     private fun renderUserData(user: UserEntity) = with(user) {
         binder.viewProfileInputs.tvWelcomeMessage.text =
             getString(R.string.profileWelcomeMessage, user.name)
-//        binder.viewProfileInputs.tvWelcomeMessage.text =
-//            getString(R.string.profileWelcomeHelloLabel)
         binder.viewProfileInputs.etName.setText(user.name)
         binder.viewProfileInputs.etEmail.setText(user.email)
         binder.viewProfileInputs.etPhone.setText(user.phoneNumber)
         binder.viewProfileInputs.etAge.setText(user.age)
         binder.viewProfileInputs.etAddress.setText(user.address)
+        binder.viewProfileInputs.tvNationalId.text = user.nationalId
+        binder.viewProfileInputs.tvCovidStatus.text =
+            user.covidStatus?.let {
+                getString(R.string.profileCovidStatus, user.covidStatus).buildProfileCovidStatusString(requireContext(),
+                    it
+                )
+            }
+        binder.viewProfileInputs.tvCovidStatus.isVisible = user.covidStatus != null
+
     }
 
     private fun renderStateView(uiModel: ProfileUIModel) {
